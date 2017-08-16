@@ -1,0 +1,21 @@
+id,label
+Central_scenario,Central Scenario
+National_RPS_80,80% National RPS
+Acc_coal_retire,Accelerated Coal Retirements
+High_transmission_cost,Barriers to Transmission
+Carbon_cap,Carbon Cap
+Climate_change,Climate Change
+Extended_nuclear_lifetime,Extended Nuclear Lifetime
+High_Cost_RE,High Cost RE
+High_Demand_Growth,High Demand Growth
+High_NG_Price,High NG Price
+Low_Cost_RE,Low Cost RE
+Low_Demand_Growth,Low Demand Growth
+Low_NG_Price,Low NG Price
+NoCPP,No CPP
+Reduced_cost_nuclear,Nuke Tech Breakthrough
+PTC_ITC_extension,PTC & ITC Extension
+Reduced_RE_resource,Reduced RE Resource
+Cooling_water_restrictions,Restricted Cooling Water
+High_PHEV,Vehicle Electrification
+WiserWindCosts,Wiser et al. Wind Costs
