@@ -1,10 +1,21 @@
 import argparse
+import logging
+import os
+
+import pandas as pds
 
 from genmatch import datasets_dir
+from .sssdataset import SSSDataset
+
+logger = logging.getLogger(__name__)
 
 DEFAULT_DATASET = 'NREL Standard Scenarios 2016'
 DEFAULT_SCENARIO = 'Central Scenario'
 DEFAULT_GEOGRAPHY = 'National'
+
+def start_console_log(log_level=logging.WARN): pass
+
+def start_file_log(log_level=logging.WARN): pass
 
 def cli_parser():
     parser = argparse.ArgumentParser(description='''Place generators by type on 
@@ -56,10 +67,12 @@ def cli_parser():
         help='''List available geographies in chosen dataset.''')
     add_dataset_argument(list_geographies_parser)
     # generator mixes
+    list_generator_mixes_parser = browse_subparsers.add_parser('mixes',
+        help='''List a particular generator mix represented in the chosen dataset.''')
     add_genmix_arguments(list_generator_mixes_parser)
     # Browse mode - where to save information as csv
     browse_parser.add_argument('-f','--filename',help='''Where to save listed 
-        information. Default is to print to screen only.''')
+        information in csv format. Default is to print to screen only.''')
 
     # Match mode - standard scenarios
     add_genmix_arguments(match_parser)
@@ -89,7 +102,26 @@ def cli_main():
         raise GenmatchError('No dataset exists in {}. Call genmatch browse datasets to see available datasets.'.format(dataset_dir))
 
     # Load the chosen generation mix dataset
-    
+    dataset = SSSDataset(dataset_dir)
+
+    if args.cmd == 'browse':
+        # Display dataset information as requested
+        result = None
+        if args.what == 'gentypes':
+            result = pds.Series(dataset.gentypes,name='Generator Type') 
+            print(result)
+        elif args.what == 'years': pass
+        elif args.what == 'scenarios': pass
+        elif args.what == 'geographies': pass
+        else:
+            assert args.what == 'mixes'
+
+        if args.filename:
+            result.to_csv(args.filename,index=False,header=True)
+
+        return
+
+    assert args.cmd == 'match'
 
     # Load the transmission system description
     #     - nodes: location, peak load, annual load, max allowed capacity of each RE type
