@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 DEFAULT_DATASET = 'NREL Standard Scenarios 2016'
 DEFAULT_SCENARIO = 'Central Scenario'
-DEFAULT_GEOGRAPHY = 'National'
+DEFAULT_GEOGRAPHY = 'national'
 
 def start_console_log(log_level=logging.WARN): pass
 
@@ -27,7 +27,7 @@ def cli_parser():
             which to pull scenarios.""",default=DEFAULT_DATASET)
 
     def add_genmix_arguments(parser):
-        parser.add_argument('scenario_year',type=int,help="""Model year on which 
+        parser.add_argument('scenario_year',help="""Model year on which 
             to base new generation mix.""")
         parser.add_argument('-s','--scenario',help="""Scenario on which to base 
             the new generation mix""",default=DEFAULT_SCENARIO)
@@ -89,14 +89,25 @@ def cli_main():
     parser = cli_parser()
     args = parser.parse_args()
 
+    def display_browse_info(result,filename):
+        if filename is None:
+            print(result)
+            return
+        result.to_csv(filename,index=False,header=True)
+        return
+
     # List all available or determine which generation mix dataset is to be 
     # viewed or used
     if args.cmd == 'browse' and args.what == 'datasets':
+        result = []
         for filepath, dirs, files in os.walk(datasets_dir):
             for dirname in dirs:
-                print("  " + dirname)
+                result.append(dirname)
             break
+        result = pds.Series(result,name="Datasets")
+        display_browse_info(result,args.filename)
         return
+
     dataset_dir = os.path.join(datasets_dir,args.dataset)
     if not os.path.exists(dataset_dir):
         raise GenmatchError('No dataset exists in {}. Call genmatch browse datasets to see available datasets.'.format(dataset_dir))
@@ -109,16 +120,17 @@ def cli_main():
         result = None
         if args.what == 'gentypes':
             result = pds.Series(dataset.gentypes,name='Generator Type') 
-            print(result)
-        elif args.what == 'years': pass
-        elif args.what == 'scenarios': pass
-        elif args.what == 'geographies': pass
+        elif args.what == 'years': 
+            result = pds.Series(dataset.years,name='Years')
+        elif args.what == 'scenarios': 
+            result = pds.Series(dataset.scenarios,name="Scenarios")
+        elif args.what == 'geographies': 
+            result = pds.Series(dataset.geographies,name="Geographies")
         else:
             assert args.what == 'mixes'
+            result = dataset.get_genmix(args.scenario_year,args.scenario,args.geography)
 
-        if args.filename:
-            result.to_csv(args.filename,index=False,header=True)
-
+        display_browse_info(result,args.filename)
         return
 
     assert args.cmd == 'match'
