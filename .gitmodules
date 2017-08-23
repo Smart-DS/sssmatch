@@ -1,0 +1,3 @@
+[submodule "sssparser"]
+	path = sssparser
+	url = git@github.nrel.gov:ehale/sssparser.git
