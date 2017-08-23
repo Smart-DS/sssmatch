@@ -84,13 +84,16 @@ class SSSDataset(object):
             data = scenario_file.get_data()
             result = None
             for state in states:
-                tmp = pds.Series([values[year] for gen_type, values in data[state].items()],
-                                 index=[gen_type for gen_type in data[state].keys()],
-                                 name=attribute_label)
+                state_data = data[state]
+                extra_key = list(state_data.keys())[0]
+                tmp = pds.Series([values[year] for gen_type, values in state_data[extra_key].items()],
+                                 index=[gen_type for gen_type in state_data[extra_key].keys()],
+                                 name=attribute_label(scenario_file))
                 if result is None:
                     result = tmp
                     continue
                 result = result.add(tmp,fill_value=0.0)
+            return result
 
         result = []
         national = False; states = []
