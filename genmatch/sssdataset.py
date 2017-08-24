@@ -10,7 +10,7 @@ from sssparser.ParseScenarios import parse_dataset
 logger = logging.getLogger(__name__)
 
 class SSSDataset(object):
-    GENMIX_ATTRIBUTES = ['capacity','generation','genFraction']
+    GENMIX_ATTRIBUTES = ['capacity','generation']
 
     def __init__(self,dataset_dir,scenario_data_dirname=DEFAULT_SCENARIO_DATA_DIRNAME):
         config_set, grouped_files = parse_dataset(dataset_dir,scenario_data_dirname=scenario_data_dirname)
@@ -114,4 +114,13 @@ class SSSDataset(object):
         if not result:
             raise GenmatchError("No generation mix availabale for year '{}', scenario_id '{}', geography_ids = '{}'".format(year,scenario_id,geography_ids))
         result = pds.concat(result,axis=1)
+        # calculate fractions
+        original_columns = result.columns
+        for col in original_columns:
+            attribute_name = col.split(' ')[0]
+            result[attribute_name + ' Fraction'] = result[col] / result[col].sum()
+        # summarize in a total line
+        totals = result.sum()
+        totals.name = 'TOTAL'
+        result = pds.concat([result,pds.DataFrame(totals).T])
         return result

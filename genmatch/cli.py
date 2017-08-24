@@ -6,6 +6,7 @@ import pandas as pds
 
 from genmatch import datasets_dir
 from .sssdataset import SSSDataset
+from .request import Request
 
 logger = logging.getLogger(__name__)
 
@@ -78,16 +79,40 @@ def cli_parser():
     add_genmix_arguments(match_parser)
 
     # Match mode - existing system
+    match_parser.add_argument('nodes',help='''Path to csv file describing nodes, 
+        or list of tuples describing nodes. Each tuple or each row of the csv file
+        should contain (node_id, latitude, longitude, peak load (MW), 
+        annual load (GWh), max allowed capacity of each RE type (MW))''')
+    match_parser.add_argument('-rt','--re_types',help='''RE types in order they 
+        appear in the nodes tuples/csv. RE types must be a subset of the selected 
+        dataset's generator types. This only needs to be specified if specifying 
+        tuples or csv column names do not match generator types.''',nargs='*')
+    match_parser.add_argument('generators',help='''Path to csv file describing 
+        existing generators, or list of tuples describing generators. Each tuple 
+        or each row of the csv file should contain (node_id, generator type, 
+        capacity (MW)). Generator type must match the dataset's generator 
+        types.''')
+    match_parser.add_argument('-eg','--excluded_gentypes',nargs='*',help='''List 
+        of generator types that should not be included in the match results. RE 
+        types with no existing unit and no allowed capacity will also be 
+        excluded.''') 
 
     # Match mode - outputs
     match_parser.add_argument('-o','--outdir',default='.',help='''Where to write
         out match information.''')
+
+    parser.add_argument('-d','--debug',action='store_true',default=False,
+        help="Option to output debug information.")
 
     return parser
 
 def cli_main():
     parser = cli_parser()
     args = parser.parse_args()
+
+    log_level = logging.DEBUG if args.debug else logging.INFO
+    fmt = '%(asctime)s|%(levelname)s|%(name)s|\n    %(message)s'
+    logging.basicConfig(format=fmt,level=log_level) # to console
 
     def display_browse_info(result,filename):
         if filename is None:
@@ -135,19 +160,31 @@ def cli_main():
 
     assert args.cmd == 'match'
 
+    def load_dataframe(arg):
+        if isinstance(arg,str):
+            return pds.read_csv(arg)
+        return pds.DataFrame(arg)
+
     # Load the transmission system description
-    #     - nodes: location, peak load, annual load, max allowed capacity of each RE type
+    #     - nodes: node_id, latitude, longitude, peak load (MW), annual load (GWh), max allowed capacity of each RE type (MW)
+    nodes = load_dataframe(args.nodes)
+    re_types = args.re_types if args.re_types else list(nodes.columns[5:])
+    nodes.columns = Request.nodes_columns(re_types)
+
     #     - existing generators: node, type, and capacity
-    #     - lines, including capacity
-
-
-    # Determine capacity mix based on comparing load and capacity by type
-    # across user system and multiple standard scenarios
-
+    generators = load_dataframe(args.generators)
+    generators.columns = Request.generators_columns()
+    
+    # Create the request
+    request = Request(nodes,
+                      generators,
+                      dataset,
+                      dataset.get_genmix(args.scenario_year,args.scenario,args.geography),
+                      exclusions=args.excluded_gentypes)
 
     # Place capacity based on system constraints, with preference for
     # making the smallest possible change as compared to original system
-
+    request.preprocess()
 
     # Write out the match, including input arguments for R2PD
     
