@@ -190,4 +190,5 @@ def cli_main():
     request.fulfill(args.outdir)
 
     # Write out the match, including input arguments for R2PD
+    request.print_report()
     

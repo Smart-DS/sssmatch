@@ -36,12 +36,14 @@ $loaddc current_indep_capacity
 $loaddc maximum_capacity
 $gdxin
 
-current_indep_capacity(n) = sum(g$g_indep(g),current_capacity(n,g)) ;
+current_indep_capacity(n) = sum(g_indep,current_capacity(n,g_indep)) ;
 maximum_capacity(n,g_dep) = max(maximum_capacity(n,g_dep),current_capacity(n,g_dep)) ;
 
 allowed(n,g) = NO ;
 allowed(n,g_indep)$current_indep_capacity(n) = YES ;
 allowed(n,g_dep)$maximum_capacity(n,g_dep) = YES ;
+
+execute_unload 'preproc.gdx', current_indep_capacity, maximum_capacity, allowed ;
 
 Variable
     Distance
