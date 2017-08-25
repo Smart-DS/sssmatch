@@ -14,6 +14,9 @@ logger = logging.getLogger(__name__)
 class Request(object):
 
     RESOURCE_INDEPENDENT = ['Biopower','Coal','NG-CC','NG-CT','Nuclear','Oil-Gas-Steam','Storage']
+    R2PD_TECHS_MAP = {'Land-based Wind': ['wind'],
+                      'Rooftop PV': ['solar','rooftop'],
+                      'Utility PV': ['solar','one-axis-tracking']}
     DEFAULT_GENTYPE_DISTANCE_FILE = os.path.join(models_dir,'default_gendists.csv')
 
     def __init__(self,nodes,generators,dataset,desired_mix,exclusions=[]):
@@ -230,7 +233,15 @@ class Request(object):
         self.capacity_swapped.to_csv(os.path.join(details_dir,'capacity_swapped.csv'),index=False)
         self.capacity_removed.to_csv(os.path.join(details_dir,'capacity_removed.csv'),index=False)
 
-        # TODO: Save out inputs to R2PD
+        for gentype, r2pd_call in self.R2PD_TECHS_MAP.items():
+            r2pd_dir = os.path.join(outdir,"_".join(r2pd_call))
+            df = self.capacity[self.capacity['generator type'] == gentype][['node_id','capacity (MW)']]
+            if df.empty:
+                continue
+            if not os.path.exists(r2pd_dir):
+                os.mkdir(r2pd_dir)
+            df.to_csv(os.path.join(r2pd_dir,'generators.csv'),index=False)
+            self.nodes.iloc[:,:3].to_csv(os.path.join(r2pd_dir,'nodes.csv'),index=False)
         return        
 
 
