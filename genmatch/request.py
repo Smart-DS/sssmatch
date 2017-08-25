@@ -1,16 +1,20 @@
 import copy
 import logging
+import os
+from shutil import copyfile
+from subprocess import call
 
 import numpy as np
 import pandas as pds
 
-from genmatch import GenmatchError
+from genmatch import GenmatchError, models_dir
 
 logger = logging.getLogger(__name__)
 
 class Request(object):
 
     RESOURCE_INDEPENDENT = ['Biopower','Coal','NG-CC','NG-CT','Nuclear','Oil-Gas-Steam','Storage']
+    DEFAULT_GENTYPE_DISTANCE_FILE = os.path.join(models_dir,'default_gendists.csv')
 
     def __init__(self,nodes,generators,dataset,desired_mix,exclusions=[]):
         self.nodes = nodes
@@ -40,6 +44,21 @@ class Request(object):
         result.name = 'Current Capacity (MW)'
         return result
 
+    def drop_default_gendists(self,filename=None):
+        data = []
+        for g in self.gentypes:
+            for gg in self.gentypes:
+                if gg == g:
+                    continue
+                if gg not in self.RESOURCE_INDEPENDENT or \
+                   (g in self.RESOURCE_INDEPENDENT and gg in self.RESOURCE_INDEPENDENT):
+                    data.append([g,gg,0.0])
+                else:
+                    data.append([g,gg,1.0])
+        if filename is None:
+            filename = self.DEFAULT_GENTYPE_DISTANCE_FILE
+        pds.DataFrame(data,columns=['g','gg','Value']).to_csv(filename,index=False)
+
     def preprocess(self):
         self.desired_mix = copy.deepcopy(self.original_desired_mix)
         del self.desired_mix['Capacity Fraction']; del self.desired_mix['Generation Fraction']
@@ -65,8 +84,7 @@ class Request(object):
         logger.info("Request summary:\n{}".format(self.summary))
 
         assert self._resource_independent_test()
-        # HERE -- resource-dependent must either have enough already in place, 
-        # or have sufficient maximum capacities.
+        assert self._resource_dependent_test()
         
     def _resource_independent_test(self):
         totals = self.summary[self.summary.index.isin(self.RESOURCE_INDEPENDENT)].sum()
@@ -76,6 +94,27 @@ class Request(object):
                   "Resource-independent generation types are: {}.".format(self.RESOURCE_INDEPENDENT) + \
                   "Current and desired capacity of this sort is:\n{}".format(totals)
             raise GenmatchError(msg)
+        logger.debug("Resource-independent generation types are: {}.".format(self.RESOURCE_INDEPENDENT) + \
+                     "Current and desired capacity of this sort is:\n{}".format(totals))
+        return True
+
+    def _resource_dependent_test(self):
+        for gentype in self.summary.index:
+            if gentype in self.RESOURCE_INDEPENDENT:
+                continue
+            desired = self.summary.loc[gentype,'Desired Capacity (MW)']
+            current = self.summary.loc[gentype,'Current Capacity (MW)']
+            if desired > current:
+                if gentype not in self.nodes:
+                    msg = "Unable to create a new generation mix with {} MW {} capacity,".format(desired,gentype) + \
+                          "because there is only {} MW in current capacity, ".format(current) + \
+                          "and no maximum quantity is specified for each node."
+                    raise GenmatchError(msg)
+                maximum = self.nodes[gentype].sum()
+                if desired > maximum:
+                    msg = "Unable to create a new generation mix with {} MW {} capacity, ".format(desired,gentype) + \
+                          "because the specified maximum supply only {} MW.".format(maximum)
+                    raise GenmatchError(msg)
         return True
 
     @classmethod
@@ -87,3 +126,91 @@ class Request(object):
         if 'Curtailment' in genmix.index:
             result += genmix.loc['Curtailment','Generation (TWh)']
         return result
+
+    def fulfill(self,outdir,gendists=None,precision=0):
+        """
+        Arguments:
+            - outdir (str) - directory in which to run matching model and place results
+            - precision (int) - number of digits after the decimal point to match desired mix to, in MW
+        """
+        if not hasattr(self,'summary'):
+            self.preprocess()
+
+        if not os.path.exists(outdir):
+            os.mkdir(outdir)
+
+        # TODO: Give user the option of algebraic modeling language
+        from gdxpds.gdx import GdxFile, GdxSymbol, GamsDataType
+
+        with GdxFile() as ingdx:
+            # Sets
+            ingdx.append(GdxSymbol('n',GamsDataType.Set,dims=['n']))
+            df = pds.DataFrame(self.nodes['node_id'])
+            df['Value'] = True
+            ingdx[-1].dataframe = df
+
+            ingdx.append(GdxSymbol('g',GamsDataType.Set,dims=['g']))
+            df = pds.DataFrame([[g, True] for g in self.gentypes],
+                               columns=['g','Value'])
+            ingdx[-1].dataframe = df
+
+            ingdx.append(GdxSymbol('g_indep',GamsDataType.Set,dims=['g']))
+            df = pds.DataFrame([[g, True] for g in self.gentypes if g in self.RESOURCE_INDEPENDENT],
+                               columns=['g','Value'])
+            ingdx[-1].dataframe = df
+
+            ingdx.append(GdxSymbol('g_dep',GamsDataType.Set,dims=['g']))
+            df = pds.DataFrame([[g, True] for g in self.gentypes if g not in self.RESOURCE_INDEPENDENT],
+                               columns=['g','Value'])
+            ingdx[-1].dataframe = df
+
+            # Parameters
+            ingdx.append(GdxSymbol('desired_capacity',GamsDataType.Parameter,dims=['g']))
+            df = pds.DataFrame(self.summary['Desired Capacity (MW)'].apply(lambda x: round(x,precision)))
+            df = df.reset_index()
+            df.columns = ['g','Value']
+            ingdx[-1].dataframe = df
+
+            ingdx.append(GdxSymbol('current_capacity',GamsDataType.Parameter,dims=['n','g']))
+            # pivot with sum on capacity in case there are multiple units of type g at node n
+            df = pds.pivot_table(self.generators,
+                                 values='capacity (MW)',
+                                 index=['node_id','generator type'],
+                                 aggfunc=np.sum)
+            df = df.reset_index()
+            df.columns = ['n','g','Value']
+            ingdx[-1].dataframe = df
+
+            ingdx.append(GdxSymbol('g_dist',GamsDataType.Parameter,dims=['g','gg']))
+            gendists_filename = gendists if gendists is not None else self.DEFAULT_GENTYPE_DISTANCE_FILE
+            df = pds.read_csv(gendists_filename)
+            ingdx[-1].dataframe = df
+
+            ingdx.append(GdxSymbol('current_indep_capacity',GamsDataType.Parameter,dims=['n']))
+            df = pds.pivot_table(self.generators[self.generators['generator type'].isin(self.RESOURCE_INDEPENDENT)],
+                                 values='capacity (MW)',
+                                 index=['node_id'],
+                                 aggfunc=np.sum)
+            df = df.reset_index()
+            df.columns = ['n','Value']
+            ingdx[-1].dataframe = df
+
+            ingdx.append(GdxSymbol('maximum_capacity',GamsDataType.Parameter,dims=['n','g_dep']))
+            dep_gentypes = [g for g in self.gentypes if g not in self.RESOURCE_INDEPENDENT]
+            df = pds.pivot_table(self.generators[self.generators['generator type'].isin(dep_gentypes)],
+                                 values='capacity (MW)',
+                                 index=['node_id','generator type'],
+                                 aggfunc=np.sum)
+            df = df.reset_index()
+            df.columns = ['n','g','Value']
+            ingdx[-1].dataframe = df
+
+            ingdx.write(os.path.join(outdir,'in.gdx'))
+
+        model_file = 'match_generators.gms'
+        copyfile(os.path.join(models_dir,model_file),os.path.join(outdir,model_file))
+
+        curdir = os.getcwd()
+        os.chdir(outdir)
+        call(['gams',model_file])
+        os.chdir(curdir)

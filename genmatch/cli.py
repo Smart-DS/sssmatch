@@ -185,6 +185,9 @@ def cli_main():
     # Place capacity based on system constraints, with preference for
     # making the smallest possible change as compared to original system
     request.preprocess()
+    # TODO: Provide mode to let users drop_default_gendists
+    # request.drop_default_gendists()
+    request.fulfill(args.outdir)
 
     # Write out the match, including input arguments for R2PD
     
