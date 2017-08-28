@@ -82,7 +82,7 @@ calculate_final_capacity(n,g)$allowed(n,g)..
     sum(gg$current_capacity(n,gg),CapacitySwapped(n,gg,g)) + 
     CapacityAdded(n,g) ;
 
-disposition_of_current_capacity(n,g)$current_capacity(n,g)..
+disposition_of_current_capacity(n,g)$allowed(n,g)..
     CapacityKept(n,g) + sum(gg$allowed(n,gg),CapacitySwapped(n,g,gg)) + CapacityRemoved(n,g) 
   =e= 
     current_capacity(n,g) ;
