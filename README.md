@@ -2,6 +2,8 @@
 
 Apply NREL Standard Scenario generation mixes to arbitrary transmission systems.
 
+[Install](#install) | [Use](#use) | [Uninstall](#uninstall)
+
 ## Use
 
 genmatch was designed primarily for use on the command line. The command-line 
@@ -20,3 +22,20 @@ nodes and current generation capacity. The intended use case is a system model
 that already exists and works under one specific configuration, for which there 
 is a desire to explore a similar system served by a different mix of generator 
 types. 
+
+Once `genmatch` is installed, the CLI can be accessed with `python gm.py`, and 
+has a fully documented help menu. For a more detailed example, please see 
+[demo_generation_mix_applied_to_rts_gmlc.ipynb](https://github.com/Smart-DS/demos/blob/master/demo_generation_mix_applied_to_rts_gmlc.ipynb).
+
+
+## Install
+
+```
+pip install git+https://github.com/Smart-DS/genmatch.git@master
+```
+
+## Uninstall
+
+```
+pip uninstall genmatch
+```
