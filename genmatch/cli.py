@@ -6,7 +6,7 @@ import pandas as pds
 
 from genmatch import datasets_dir
 from .sssdataset import SSSDataset
-from .request import Request
+from .request import Request, AML
 
 logger = logging.getLogger(__name__)
 
@@ -100,6 +100,20 @@ def cli_parser():
     # Match mode - outputs
     match_parser.add_argument('-o','--outdir',default='.',help='''Where to write
         out match information.''')
+    match_parser.add_argument('-gd','--gendists',help='''Path to csv file 
+        containing rows with (gentype_to, gentype_from, distance). Distances are 
+        generally between 0 and 1. A distance of 0 means switching capacity from 
+        gentype_to to gentype_from is equivalent to keeping the original 
+        generator. A distance of 1 means that such a switch is no better than 
+        removing old capacity and placing new capacity with no regard to where 
+        the previous generators were. Default is to use default_gendists.csv.''')
+    match_parser.add_argument('-p','--precision',type=int,help='''The precision 
+        to which the desired capacity is to be matched, in MW. Thus 0 
+        corresponds to rounding to the nearest MW, 1 corresponds to the nearest
+        100 kW, and 3 is the nearest kW.''',default=0)
+    match_parser.add_argument('-a','--aml',type=AML,choices=[val.name for val in AML],
+        help='''Algebraic modeling language to use to solve the matching problem.''',
+        default=AML.GAMS)
 
     parser.add_argument('-d','--debug',action='store_true',default=False,
         help="Option to output debug information.")
@@ -116,6 +130,10 @@ def cli_main():
 
     def display_browse_info(result,filename):
         if filename is None:
+            if isinstance(result,pds.Series):
+                for i, value in result.iteritems():
+                    print("  " + str(value))
+                return
             print(result)
             return
         result.to_csv(filename,index=False,header=True)
@@ -187,7 +205,10 @@ def cli_main():
     request.preprocess()
     # TODO: Provide mode to let users drop_default_gendists
     # request.drop_default_gendists()
-    request.fulfill(args.outdir)
+    request.fulfill(args.outdir,
+                    gendists=args.gendists,
+                    precision=args.precision,
+                    aml=args.aml)
 
     # Write out the match, including input arguments for R2PD
     request.print_report()

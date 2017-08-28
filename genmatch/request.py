@@ -1,4 +1,5 @@
 import copy
+from enum import Enum, auto
 import logging
 import os
 from shutil import copyfile
@@ -11,6 +12,11 @@ from genmatch import GenmatchError, models_dir
 
 logger = logging.getLogger(__name__)
 
+
+class AML(Enum):
+    GAMS = auto()
+
+
 class Request(object):
 
     RESOURCE_INDEPENDENT = ['Biopower','Coal','NG-CC','NG-CT','Nuclear','Oil-Gas-Steam','Storage']
@@ -19,12 +25,14 @@ class Request(object):
                       'Utility PV': ['solar','one-axis-tracking']}
     DEFAULT_GENTYPE_DISTANCE_FILE = os.path.join(models_dir,'default_gendists.csv')
 
+
     def __init__(self,nodes,generators,dataset,desired_mix,exclusions=[]):
         self.nodes = nodes
         self.generators = generators
         self.dataset = dataset
         self.original_desired_mix = desired_mix
         self.exclusions = exclusions if exclusions is not None else []
+
 
     @classmethod
     def nodes_columns(cls,re_types):
@@ -52,6 +60,7 @@ class Request(object):
         result.name = 'Current Capacity (MW)'
         return result
 
+
     def drop_default_gendists(self,filename=None):
         data = []
         for g in self.gentypes:
@@ -66,6 +75,7 @@ class Request(object):
         if filename is None:
             filename = self.DEFAULT_GENTYPE_DISTANCE_FILE
         pds.DataFrame(data,columns=['g','gg','Value']).to_csv(filename,index=False)
+
 
     def preprocess(self):
         self.desired_mix = copy.deepcopy(self.original_desired_mix)
@@ -94,6 +104,7 @@ class Request(object):
 
         assert self._resource_independent_test()
         assert self._resource_dependent_test()
+
         
     def _resource_independent_test(self):
         totals = self.summary[self.summary.index.isin(self.RESOURCE_INDEPENDENT)].sum()
@@ -106,6 +117,7 @@ class Request(object):
         logger.debug("Resource-independent generation types are: {}.".format(self.RESOURCE_INDEPENDENT) + \
                      "Current and desired capacity of this sort is:\n{}".format(totals))
         return True
+
 
     def _resource_dependent_test(self):
         for gentype in self.summary.index:
@@ -126,6 +138,7 @@ class Request(object):
                     raise GenmatchError(msg)
         return True
 
+
     @classmethod
     def annual_useable_generation(cls,genmix,gentypes):
         """
@@ -136,22 +149,34 @@ class Request(object):
             result += genmix.loc['Curtailment','Generation (TWh)']
         return result
 
-    def fulfill(self,outdir,gendists=None,precision=0):
+
+    def fulfill(self,outdir,gendists=None,precision=0,aml=AML.GAMS):
         """
         Arguments:
-            - outdir (str) - directory in which to run matching model and place results
-            - precision (int) - number of digits after the decimal point to match desired mix to, in MW
+            - outdir (str) - directory in which to run matching model and place 
+              results
+            - gendists (str) - path to csv of (gentype_from, gentype_to, 
+              distance)
+            - precision (int) - number of digits after the decimal point to 
+              match desired mix to, in MW
+            - aml (AML) - value of the AML enum that corresponds to the 
+              algebraic modeling language you would like to use
         """
         if not hasattr(self,'summary'):
             self.preprocess()
 
-        model = GamsModel(self,outdir)
+        model = None
+        if aml == AML.GAMS:
+            model = GamsModel(self,outdir)
+        assert model is not None, "Choose from one of the available algebraic modeling languages: {}".format(",".join([val.name for val in AML]))
+
         model.setup(gendists=gendists,precision=precision)
         model.run()
         ret = model.collect_results()
         if not ret:
             raise GenmatchError('Running the match model {} failed. Examine outputs in {}.'.format(model.MODEL_FILE,outdir))
         self.save_results(outdir)
+
 
     def register_results(self,capacity,capacity_added,capacity_kept,
                          capacity_swapped,capacity_removed,distance):
@@ -256,10 +281,21 @@ class Model(object):
         self.request = request
         self.outdir = outdir
 
-    def setup(self): 
+    def setup(self,gendists=None,precision=0): 
         if not os.path.exists(self.outdir):
             os.mkdir(self.outdir)
         copyfile(os.path.join(models_dir,self.MODEL_FILE),os.path.join(self.outdir,self.MODEL_FILE))
+
+        gendists_filename = gendists if gendists is not None else self.request.DEFAULT_GENTYPE_DISTANCE_FILE
+        gendists_df = pds.read_csv(gendists_filename)
+        gendists_df.columns = ['g','gg','Value']
+        gendists_df = gendists_df[gendists_df.g.isin(self.request.gentypes) & gendists_df.gg.isin(self.request.gentypes)]
+
+        desired_capacity_df = pds.DataFrame(self.request.summary['Desired Capacity (MW)'].apply(lambda x: round(x,precision)))
+        desired_capacity_df = desired_capacity_df.reset_index()
+        desired_capacity_df.columns = ['g','Value']
+
+        return gendists_df, desired_capacity_df
 
     def run(self): pass
 
@@ -273,7 +309,7 @@ class GamsModel(Model):
         super().__init__(request,outdir)
 
     def setup(self,gendists=None,precision=0):
-        super().setup()
+        gendists_df, desired_capacity_df = super().setup(gendists=gendists,precision=precision)
 
         from gdxpds.gdx import GdxFile, GdxSymbol, GamsDataType
         with GdxFile() as ingdx:
@@ -300,10 +336,7 @@ class GamsModel(Model):
 
             # Parameters
             ingdx.append(GdxSymbol('desired_capacity',GamsDataType.Parameter,dims=['g']))
-            df = pds.DataFrame(self.request.summary['Desired Capacity (MW)'].apply(lambda x: round(x,precision)))
-            df = df.reset_index()
-            df.columns = ['g','Value']
-            ingdx[-1].dataframe = df
+            ingdx[-1].dataframe = desired_capacity_df
 
             ingdx.append(GdxSymbol('current_capacity',GamsDataType.Parameter,dims=['n','g']))
             # pivot with sum on capacity in case there are multiple units of type g at node n
@@ -316,11 +349,7 @@ class GamsModel(Model):
             ingdx[-1].dataframe = df
 
             ingdx.append(GdxSymbol('g_dist',GamsDataType.Parameter,dims=['g','gg']))
-            gendists_filename = gendists if gendists is not None else self.request.DEFAULT_GENTYPE_DISTANCE_FILE
-            df = pds.read_csv(gendists_filename)
-            df.columns = ['g','gg','Value']
-            df = df[df.g.isin(self.request.gentypes) & df.gg.isin(self.request.gentypes)]
-            ingdx[-1].dataframe = df
+            ingdx[-1].dataframe = gendists_df
 
             ingdx.append(GdxSymbol('current_indep_capacity',GamsDataType.Parameter,dims=['n']))
             df = pds.pivot_table(self.request.generators[self.request.generators['generator type'].isin(self.request.RESOURCE_INDEPENDENT)],
