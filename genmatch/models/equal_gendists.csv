@@ -1,0 +1,157 @@
+g,gg,Value
+Biopower,CSP,0.5
+Biopower,Coal,0.5
+Biopower,Geothermal,0.5
+Biopower,Hydro,0.5
+Biopower,Land-based Wind,0.5
+Biopower,NG-CC,0.5
+Biopower,NG-CT,0.5
+Biopower,Nuclear,0.5
+Biopower,Oil-Gas-Steam,0.5
+Biopower,Rooftop PV,0.5
+Biopower,Storage,0.5
+Biopower,Utility PV,0.5
+CSP,Biopower,0.5
+CSP,Coal,0.5
+CSP,Geothermal,0.5
+CSP,Hydro,0.5
+CSP,Land-based Wind,0.5
+CSP,NG-CC,0.5
+CSP,NG-CT,0.5
+CSP,Nuclear,0.5
+CSP,Oil-Gas-Steam,0.5
+CSP,Rooftop PV,0.5
+CSP,Storage,0.5
+CSP,Utility PV,0.5
+Coal,Biopower,0.5
+Coal,CSP,0.5
+Coal,Geothermal,0.5
+Coal,Hydro,0.5
+Coal,Land-based Wind,0.5
+Coal,NG-CC,0.5
+Coal,NG-CT,0.5
+Coal,Nuclear,0.5
+Coal,Oil-Gas-Steam,0.5
+Coal,Rooftop PV,0.5
+Coal,Storage,0.5
+Coal,Utility PV,0.5
+Geothermal,Biopower,0.5
+Geothermal,CSP,0.5
+Geothermal,Coal,0.5
+Geothermal,Hydro,0.5
+Geothermal,Land-based Wind,0.5
+Geothermal,NG-CC,0.5
+Geothermal,NG-CT,0.5
+Geothermal,Nuclear,0.5
+Geothermal,Oil-Gas-Steam,0.5
+Geothermal,Rooftop PV,0.5
+Geothermal,Storage,0.5
+Geothermal,Utility PV,0.5
+Hydro,Biopower,0.5
+Hydro,CSP,0.5
+Hydro,Coal,0.5
+Hydro,Geothermal,0.5
+Hydro,Land-based Wind,0.5
+Hydro,NG-CC,0.5
+Hydro,NG-CT,0.5
+Hydro,Nuclear,0.5
+Hydro,Oil-Gas-Steam,0.5
+Hydro,Rooftop PV,0.5
+Hydro,Storage,0.5
+Hydro,Utility PV,0.5
+Land-based Wind,Biopower,0.5
+Land-based Wind,CSP,0.5
+Land-based Wind,Coal,0.5
+Land-based Wind,Geothermal,0.5
+Land-based Wind,Hydro,0.5
+Land-based Wind,NG-CC,0.5
+Land-based Wind,NG-CT,0.5
+Land-based Wind,Nuclear,0.5
+Land-based Wind,Oil-Gas-Steam,0.5
+Land-based Wind,Rooftop PV,0.5
+Land-based Wind,Storage,0.5
+Land-based Wind,Utility PV,0.5
+NG-CC,Biopower,0.5
+NG-CC,CSP,0.5
+NG-CC,Coal,0.5
+NG-CC,Geothermal,0.5
+NG-CC,Hydro,0.5
+NG-CC,Land-based Wind,0.5
+NG-CC,NG-CT,0.5
+NG-CC,Nuclear,0.5
+NG-CC,Oil-Gas-Steam,0.5
+NG-CC,Rooftop PV,0.5
+NG-CC,Storage,0.5
+NG-CC,Utility PV,0.5
+NG-CT,Biopower,0.5
+NG-CT,CSP,0.5
+NG-CT,Coal,0.5
+NG-CT,Geothermal,0.5
+NG-CT,Hydro,0.5
+NG-CT,Land-based Wind,0.5
+NG-CT,NG-CC,0.5
+NG-CT,Nuclear,0.5
+NG-CT,Oil-Gas-Steam,0.5
+NG-CT,Rooftop PV,0.5
+NG-CT,Storage,0.5
+NG-CT,Utility PV,0.5
+Nuclear,Biopower,0.5
+Nuclear,CSP,0.5
+Nuclear,Coal,0.5
+Nuclear,Geothermal,0.5
+Nuclear,Hydro,0.5
+Nuclear,Land-based Wind,0.5
+Nuclear,NG-CC,0.5
+Nuclear,NG-CT,0.5
+Nuclear,Oil-Gas-Steam,0.5
+Nuclear,Rooftop PV,0.5
+Nuclear,Storage,0.5
+Nuclear,Utility PV,0.5
+Oil-Gas-Steam,Biopower,0.5
+Oil-Gas-Steam,CSP,0.5
+Oil-Gas-Steam,Coal,0.5
+Oil-Gas-Steam,Geothermal,0.5
+Oil-Gas-Steam,Hydro,0.5
+Oil-Gas-Steam,Land-based Wind,0.5
+Oil-Gas-Steam,NG-CC,0.5
+Oil-Gas-Steam,NG-CT,0.5
+Oil-Gas-Steam,Nuclear,0.5
+Oil-Gas-Steam,Rooftop PV,0.5
+Oil-Gas-Steam,Storage,0.5
+Oil-Gas-Steam,Utility PV,0.5
+Rooftop PV,Biopower,0.5
+Rooftop PV,CSP,0.5
+Rooftop PV,Coal,0.5
+Rooftop PV,Geothermal,0.5
+Rooftop PV,Hydro,0.5
+Rooftop PV,Land-based Wind,0.5
+Rooftop PV,NG-CC,0.5
+Rooftop PV,NG-CT,0.5
+Rooftop PV,Nuclear,0.5
+Rooftop PV,Oil-Gas-Steam,0.5
+Rooftop PV,Storage,0.5
+Rooftop PV,Utility PV,0.5
+Storage,Biopower,0.5
+Storage,CSP,0.5
+Storage,Coal,0.5
+Storage,Geothermal,0.5
+Storage,Hydro,0.5
+Storage,Land-based Wind,0.5
+Storage,NG-CC,0.5
+Storage,NG-CT,0.5
+Storage,Nuclear,0.5
+Storage,Oil-Gas-Steam,0.5
+Storage,Rooftop PV,0.5
+Storage,Utility PV,0.5
+Utility PV,Biopower,0.5
+Utility PV,CSP,0.5
+Utility PV,Coal,0.5
+Utility PV,Geothermal,0.5
+Utility PV,Hydro,0.5
+Utility PV,Land-based Wind,0.5
+Utility PV,NG-CC,0.5
+Utility PV,NG-CT,0.5
+Utility PV,Nuclear,0.5
+Utility PV,Oil-Gas-Steam,0.5
+Utility PV,Rooftop PV,0.5
+Utility PV,Storage,0.5
