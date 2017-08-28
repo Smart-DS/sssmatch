@@ -7,7 +7,7 @@ setup(
     author_email='elaine.hale@nrel.gov',
     packages=['genmatch', 'sssparser'],
     scripts=['bin/gm.py'],
-    package_data={'genmixes': ['genmixes/**/*.csv']
+    package_data={'genmixes': ['genmixes/**/*.csv'],
                   'genmatch.models': ['genmatch/models/*.csv',
                                       'genmatch/models/*.gms']},
     url='https://github.com/Smart-DS/genmatch',
