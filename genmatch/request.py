@@ -57,7 +57,7 @@ class Request(object):
                                  values='capacity (MW)',
                                  index='generator type',
                                  aggfunc=np.sum)
-        result.name = 'Current Capacity (MW)'
+        result.columns = ['Current Capacity (MW)']
         return result
 
 
@@ -98,7 +98,7 @@ class Request(object):
         # determine if request is at all feasible
         desired_mw = self.desired_mix['Capacity (GW)'] * 1000.0
         desired_mw.name = 'Desired Capacity (MW)'
-        self.summary = pds.DataFrame(self.current_mix).merge(pds.DataFrame(desired_mw),how='outer',left_index=True,right_index=True)
+        self.summary = self.current_mix.merge(pds.DataFrame(desired_mw),how='outer',left_index=True,right_index=True)
         self.summary.fillna(0.0,inplace=True)
         logger.info("Request summary:\n{}".format(self.summary))
 
@@ -201,42 +201,42 @@ class Request(object):
                                   values='capacity (MW)',
                                   index='generator type',
                                   aggfunc=np.sum)
-        kept_mw.name = 'kept (MW)'
+        kept_mw.columns = ['kept (MW)']
         self.result_summary = self.result_summary.merge(pds.DataFrame(kept_mw),how='outer',left_index=True,right_index=True)
 
         swapped_out = pds.pivot_table(self.capacity_swapped,
                                       values='capacity (MW)',
                                       index='from generator type',
                                       aggfunc=np.sum)
-        swapped_out.name = 'swapped out (MW)'
+        swapped_out.columns = ['swapped out (MW)']
         self.result_summary = self.result_summary.merge(pds.DataFrame(swapped_out),how='outer',left_index=True,right_index=True)
 
         swapped_in = pds.pivot_table(self.capacity_swapped,
                                      values='capacity (MW)',
                                      index='to generator type',
                                      aggfunc=np.sum)
-        swapped_in.name = 'swapped in (MW)'
+        swapped_in.columns = ['swapped in (MW)']
         self.result_summary = self.result_summary.merge(pds.DataFrame(swapped_in),how='outer',left_index=True,right_index=True)
 
         added = pds.pivot_table(self.capacity_added,
                                 values='capacity (MW)',
                                 index='generator type',
                                 aggfunc=np.sum)
-        added.name = 'added (MW)'
+        added.columns = ['added (MW)']
         self.result_summary = self.result_summary.merge(pds.DataFrame(added),how='outer',left_index=True,right_index=True)
 
         removed = pds.pivot_table(self.capacity_removed,
                                   values='capacity (MW)',
                                   index='generator type',
                                   aggfunc=np.sum)
-        removed.name = 'removed (MW)'
+        removed.columns = ['removed (MW)']
         self.result_summary = self.result_summary.merge(pds.DataFrame(removed),how='outer',left_index=True,right_index=True)
 
         final = pds.pivot_table(self.capacity,
                                 values='capacity (MW)',
                                 index='generator type',
                                 aggfunc=np.sum)
-        final.name = 'final (MW)'
+        final.columns = ['final (MW)']
         self.result_summary = self.result_summary.merge(pds.DataFrame(final),how='outer',left_index=True,right_index=True)
 
         total = self.result_summary.sum()
