@@ -1,4 +1,4 @@
-# genmatch
+# sssmatch
 
 Apply NREL Standard Scenario generation mixes to arbitrary transmission systems.
 
@@ -6,8 +6,8 @@ Apply NREL Standard Scenario generation mixes to arbitrary transmission systems.
 
 ## Use
 
-genmatch was designed primarily for use on the command line. The command-line 
-interface is accessible through `gm.py`. There are two primary commands:
+sssmatch was designed primarily for use on the command line. The command-line 
+interface is accessible through `sssm.py`. There are two primary commands:
 
     - browse
     - match
@@ -23,19 +23,20 @@ that already exists and works under one specific configuration, for which there
 is a desire to explore a similar system served by a different mix of generator 
 types. 
 
-Once `genmatch` is installed, the CLI can be accessed with `python gm.py`, and 
-has a fully documented help menu. For a more detailed example, please see 
-[demo_generation_mix_applied_to_rts_gmlc.ipynb](https://github.com/Smart-DS/demos/blob/master/demo_generation_mix_applied_to_rts_gmlc.ipynb).
+Once `sssmatch` is installed, the CLI can be accessed with `sssm.py` or 
+`python /your/path/to/PythonXX/Scripts.sssm.py`, and has a fully documented help 
+menu. For a more detailed example, please see 
+[demo_sssmatch_applied_to_rts_gmlc.ipynb](https://github.com/Smart-DS/demos/blob/master/demo_sssmatch_applied_to_rts_gmlc.ipynb).
 
 
 ## Install
 
 ```
-pip install git+https://github.com/Smart-DS/genmatch.git@master
+pip install git+https://github.com/Smart-DS/sssmatch.git@master
 ```
 
 ## Uninstall
 
 ```
-pip uninstall genmatch
+pip uninstall sssmatch
 ```
