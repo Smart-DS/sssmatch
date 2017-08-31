@@ -4,8 +4,8 @@ import os
 
 import pandas as pds
 
-from genmatch import datasets_dir, GenmatchError
-from .sssdataset import SSSDataset
+from sssmatch import datasets_dir, SSSMatchError
+from sssparser.ScenariosDataset import ScenariosDataset
 from .request import Request, AML
 
 logger = logging.getLogger(__name__)
@@ -13,10 +13,6 @@ logger = logging.getLogger(__name__)
 DEFAULT_DATASET = 'NREL Standard Scenarios 2016'
 DEFAULT_SCENARIO = 'Central Scenario'
 DEFAULT_GEOGRAPHY = 'national'
-
-def start_console_log(log_level=logging.WARN): pass
-
-def start_file_log(log_level=logging.WARN): pass
 
 def cli_parser():
     parser = argparse.ArgumentParser(description='''Place generators by type on 
@@ -153,10 +149,10 @@ def cli_main():
 
     dataset_dir = os.path.join(datasets_dir,args.dataset)
     if not os.path.exists(dataset_dir):
-        raise GenmatchError('No dataset exists in {}. Call genmatch browse datasets to see available datasets.'.format(dataset_dir))
+        raise SSSMatchError('No dataset exists in {}. Call sssmatch browse datasets to see available datasets.'.format(dataset_dir))
 
     # Load the chosen generation mix dataset
-    dataset = SSSDataset(dataset_dir)
+    dataset = ScenariosDataset(dataset_dir)
 
     if args.cmd == 'browse':
         # Display dataset information as requested

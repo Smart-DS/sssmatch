@@ -3,13 +3,13 @@ import logging
 
 import pandas as pds
 
-from genmatch import GenmatchError
-from sssparser.DataConfig import DEFAULT_SCENARIO_DATA_DIRNAME
-from sssparser.ParseScenarios import parse_dataset
+from sssparser import SSSParserError
+from .DataConfig import DEFAULT_SCENARIO_DATA_DIRNAME
+from .ParseScenarios import parse_dataset
 
 logger = logging.getLogger(__name__)
 
-class SSSDataset(object):
+class ScenariosDataset(object):
     GENMIX_ATTRIBUTES = ['capacity','generation']
 
     def __init__(self,dataset_dir,scenario_data_dirname=DEFAULT_SCENARIO_DATA_DIRNAME):
@@ -112,7 +112,7 @@ class SSSDataset(object):
                     elif states and f.spatial_resolution_id == 'states':
                         result.append(get_states_data(f,states))
         if not result:
-            raise GenmatchError("No generation mix availabale for year '{}', scenario_id '{}', geography_ids = '{}'".format(year,scenario_id,geography_ids))
+            raise SSSParserError("No generation mix availabale for year '{}', scenario_id '{}', geography_ids = '{}'".format(year,scenario_id,geography_ids))
         result = pds.concat(result,axis=1)
         # calculate fractions
         original_columns = result.columns

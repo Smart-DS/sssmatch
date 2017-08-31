@@ -8,7 +8,7 @@ from subprocess import call
 import numpy as np
 import pandas as pds
 
-from genmatch import GenmatchError, models_dir
+from sssmatch import SSSMatchError, models_dir
 
 logger = logging.getLogger(__name__)
 
