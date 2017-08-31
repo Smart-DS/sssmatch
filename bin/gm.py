@@ -1,3 +1,5 @@
+#! python
+
 from genmatch.cli import cli_main
 
 if __name__ == '__main__':

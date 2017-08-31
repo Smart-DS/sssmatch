@@ -1,4 +1,0 @@
-include genmixes/**/*.csv
-include genmixes/**/**/*.csv
-include genmatch/models/*.gms
-include genmatch/models/*.csv
