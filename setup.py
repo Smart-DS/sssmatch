@@ -7,7 +7,6 @@ data_install_dir = os.path.join('Lib','site-packages')
 for dirpath, dirnames, filenames in os.walk('genmixes'):
     for filename in filenames:
         data_files.append((os.path.join(data_install_dir,dirpath),os.path.join(dirpath,filename)))
-print(data_files)
 
 setup(
     name='genmatch',
