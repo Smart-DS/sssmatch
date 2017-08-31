@@ -4,7 +4,7 @@ import os
 
 import pandas as pds
 
-from genmatch import datasets_dir
+from genmatch import datasets_dir, GenmatchError
 from .sssdataset import SSSDataset
 from .request import Request, AML
 
