@@ -1,13 +1,13 @@
 from distutils.core import setup
 import glob
+import os
 
-data_install_dir = 'Lib/site-packages/'
-dataset_dirs = glob.glob('genmixes/**')
 data_files = []
-for dataset_dir in dataset_dirs:
-    data_files.append((data_install_dir + dataset_dir,glob.glob(dataset_dir + '/*.csv')))
-    for subdir in glob.glob(dataset_dir + '/**'):
-        data_files.append((data_install_dir + subdir,glob.glob(subdir + '/*.csv')))
+data_install_dir = os.path.join('Lib','site-packages')
+for dirpath, dirnames, filenames in os.walk('genmixes'):
+    for filename in filenames:
+        data_files.append((os.path.join(data_install_dir,dirpath),os.path.join(dirpath,filename)))
+print(data_files)
 
 setup(
     name='genmatch',
