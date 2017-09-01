@@ -239,6 +239,8 @@ class Request(object):
         final.columns = ['final (MW)']
         self.result_summary = self.result_summary.merge(pds.DataFrame(final),how='outer',left_index=True,right_index=True)
 
+        self.result_summary.fillna(0.0,inplace=True)
+
         total = self.result_summary.sum()
         total.name = 'TOTAL'
         self.result_summary = pds.concat([self.result_summary,pds.DataFrame(total).T])
@@ -398,11 +400,16 @@ class GamsModel(Model):
                          ('CapacityRemoved',self.request.generators_columns()),
                          ('Distance',['Level'])]
 
+            capacity_column = self.request.generators_columns()[-1]
+
             args = []
             for variable_name, column_names in variables:
                 p_gdx[variable_name].load()
                 tmp = p_gdx[variable_name].dataframe.iloc[:,:(len(column_names))]
                 tmp.columns = column_names
+                # clear out 0 capacity entries
+                if capacity_column in tmp.columns:
+                    tmp = tmp[tmp[capacity_column] > 0.0]
                 args.append(tmp)
 
             args[-1] = args[-1]['Level'].values[0]
