@@ -14,7 +14,7 @@ for dirpath, dirnames, filenames in os.walk('sssmixes'):
 
 setup(
     name='sssmatch',
-    version='0.1.0',
+    version='0.2.0',
     author='Elaine Hale',
     author_email='elaine.hale@nrel.gov',
     packages=['sssmatch', 'sssparser'],
