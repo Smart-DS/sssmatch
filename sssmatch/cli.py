@@ -11,7 +11,8 @@ from .request import Request, AML
 logger = logging.getLogger(__name__)
 
 DEFAULT_DATASET = 'NREL Standard Scenarios 2016'
-DEFAULT_SCENARIO = 'Central Scenario'
+DEFAULT_SCENARIOS = { 'NREL Standard Scenarios 2016': 'Central Scenario',
+                      'NREL Standard Scenarios 2017': 'Mid_Case' }
 DEFAULT_GEOGRAPHY = 'national'
 
 def cli_parser():
@@ -27,7 +28,8 @@ def cli_parser():
         parser.add_argument('scenario_year',help="""Model year on which 
             to base new generation mix.""")
         parser.add_argument('-s','--scenario',help="""Scenario on which to base 
-            the new generation mix""",default=DEFAULT_SCENARIO)
+            the new generation mix. Defaults to the central or mid-case 
+            scenario.""")
         parser.add_argument('-g','--geography',help="""Geography from which to 
             pull generation mix data. If multiple geographies are listed, the 
             union will be taken.""",nargs='+',default=DEFAULT_GEOGRAPHY)
@@ -167,6 +169,8 @@ def cli_main():
             result = pds.Series(dataset.geographies,name="Geographies")
         else:
             assert args.what == 'mixes'
+            if args.scenario is None:
+                args.scenario = DEFAULT_SCENARIOS[args.dataset]
             result = dataset.get_genmix(args.scenario_year,args.scenario,args.geography)
 
         display_browse_info(result,args.filename)
@@ -190,6 +194,8 @@ def cli_main():
     generators.columns = Request.generators_columns()
     
     # Create the request
+    if args.scenario is None:
+        args.scenario = DEFAULT_SCENARIOS[args.dataset]
     request = Request(nodes,
                       generators,
                       dataset,

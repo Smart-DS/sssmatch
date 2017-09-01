@@ -113,7 +113,7 @@ class Request(object):
                   "resource-independent capacity than the current system." + \
                   "Resource-independent generation types are: {}.".format(self.RESOURCE_INDEPENDENT) + \
                   "Current and desired capacity of this sort is:\n{}".format(totals)
-            raise GenmatchError(msg)
+            raise SSSMatchError(msg)
         logger.debug("Resource-independent generation types are: {}.".format(self.RESOURCE_INDEPENDENT) + \
                      "Current and desired capacity of this sort is:\n{}".format(totals))
         return True
@@ -130,12 +130,12 @@ class Request(object):
                     msg = "Unable to create a new generation mix with {} MW {} capacity,".format(desired,gentype) + \
                           "because there is only {} MW in current capacity, ".format(current) + \
                           "and no maximum quantity is specified for each node."
-                    raise GenmatchError(msg)
+                    raise SSSMatchError(msg)
                 maximum = self.nodes[gentype].sum()
                 if desired > maximum:
                     msg = "Unable to create a new generation mix with {} MW {} capacity, ".format(desired,gentype) + \
                           "because the specified maximum supply only {} MW.".format(maximum)
-                    raise GenmatchError(msg)
+                    raise SSSMatchError(msg)
         return True
 
 
@@ -174,7 +174,7 @@ class Request(object):
         model.run()
         ret = model.collect_results()
         if not ret:
-            raise GenmatchError('Running the match model {} failed. Examine outputs in {}.'.format(model.MODEL_FILE,outdir))
+            raise SSSMatchError('Running the match model {} failed. Examine outputs in {}.'.format(model.MODEL_FILE,outdir))
         self.save_results(outdir)
 
 

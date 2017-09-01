@@ -1,0 +1,28 @@
+id,label
+Mid_Case,Mid-Case Scenario
+60Year_nuclear_lifetime,60-Year Nuclear Lifetime
+80Year_nuclear_lifetime,80-Year Nuclear Lifetime
+National_RPS_80,80% National RPS
+Acc_coal_retire,Accelerated Coal Retirements
+High_transmission_cost,Barriers to Transmission
+Carbon_cap,Carbon Cap
+Climate_change,Climate Change
+Early_nuclear_Retirements,Early Nuclear Retirements
+Extended_nuclear_lifetime,Extended Nuclear Lifetime
+High_Bat_Cost,High Battery Cost
+High_Demand_Growth,High Demand Growth
+High_NG_Price,High NG Price
+High_RE_Cost,High RE Cost
+Low_Bat_Cost,Low Battery Cost
+Low_Demand_Growth,Low Demand Growth
+Low_Finance_Cost,Low Finance Cost
+Low_NG_Price,Low NG Price
+Low_PV_Cost,Low PV Cost
+Low_RE_Cost,Low RE Cost
+Low_Wind_Cost,Low Wind Cost
+WithCPP,Mid-Case with CPP
+Reduced_cost_nuclear,Nuke Tech Breakthrough
+PTC_ITC_extension,PTC & ITC Extension
+Reduced_RE_resource,Reduced RE Resource
+Cooling_water_restrictions,Restricted Cooling Water
+High_PHEV,Vehicle Electrification
