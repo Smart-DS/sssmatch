@@ -10,7 +10,7 @@ from .request import Request, AML
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_DATASET = 'NREL Standard Scenarios 2016'
+DEFAULT_DATASET = 'NREL Standard Scenarios 2017'
 DEFAULT_SCENARIOS = { 'NREL Standard Scenarios 2016': 'Central Scenario',
                       'NREL Standard Scenarios 2017': 'Mid_Case' }
 DEFAULT_GEOGRAPHY = 'national'
