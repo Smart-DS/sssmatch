@@ -1,3 +1,4 @@
+v0.3.0, 09/19/2017 -- Updating to final 2017 standard scenarios
 v0.2.0, 09/01/2017 -- Adds 2017 standard scenarios
                       Fixes a few minor bugs
 v0.1.0, 08/31/2017 -- Initial release

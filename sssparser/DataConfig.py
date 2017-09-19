@@ -1,5 +1,8 @@
 import csv
+import logging
 import os
+
+logger = logging.getLogger(__name__)
 
 FIPS_PATH = '../data/spatial/state_fips_codes.csv'
 
@@ -30,9 +33,18 @@ class DataConfig(list):
         return [d['id'] for d in self]
 
     def find_by_id(self, config_id):
+
+        def id_matches(config_id, candidate):
+            if config_id == candidate:
+                return True
+            elif config_id.startswith('X'):
+                return config_id[1:] == candidate
+            return False
+
         try:
-            config = next(d for d in self if d['id'] == config_id)
+            config = next(d for d in self if id_matches(config_id,d['id']))
         except StopIteration:
+            logger.error("{} not found in {}".format(config_id, [d['id'] for d in self]))
             config = None
 
         return config
