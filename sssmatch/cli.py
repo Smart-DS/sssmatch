@@ -118,6 +118,16 @@ def cli_parser():
 
     return parser
 
+
+def datasets():
+    result = []
+    for filepath, dirs, files in os.walk(datasets_dir):
+        for dirname in dirs:
+            result.append(dirname)
+        break
+    return result
+
+
 def cli_main():
     parser = cli_parser()
     args = parser.parse_args()
@@ -140,13 +150,7 @@ def cli_main():
     # List all available or determine which generation mix dataset is to be 
     # viewed or used
     if args.cmd == 'browse' and args.what == 'datasets':
-        result = []
-        for filepath, dirs, files in os.walk(datasets_dir):
-            for dirname in dirs:
-                result.append(dirname)
-            break
-        result = pds.Series(result,name="Datasets")
-        display_browse_info(result,args.filename)
+        display_browse_info(pds.Series(datasets(),name="Datasets"),args.filename)
         return
 
     dataset_dir = os.path.join(datasets_dir,args.dataset)
