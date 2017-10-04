@@ -92,11 +92,9 @@ class ScenarioFile(object):
                     group = group.drop(additional_columns[0], axis=1)
 
                     if self.cumulative_temporal:
-                        response[name] = {'value': float("{0:.4f}".format(d['value'])) for d in
-                                      group.to_dict(orient='records')}
+                        response[name] = {'value': float("{0:.4f}".format(d['value'])) for d in group.to_dict(orient='records')}
                     else:
-                        response[name] = {d['time']: float("{0:.4f}".format(d['value'])) for d in
-                                      group.to_dict(orient='records')}
+                        response[name] = {d['time']: float("{0:.4f}".format(d['value'])) for d in group.to_dict(orient='records')}
             else:
                 try:
                     spatial_grouped = self.__data.groupby(['gid'])
@@ -105,7 +103,6 @@ class ScenarioFile(object):
                     print(self.spatial_resolution)
                     raise e
                 for spatial_name, spatial_group in spatial_grouped:
-
                     response[spatial_name] = {
                         self.attribute['id']: {}
                     }

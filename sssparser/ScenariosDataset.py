@@ -14,6 +14,7 @@ class ScenariosDataset(object):
 
     def __init__(self,dataset_dir,scenario_data_dirname=DEFAULT_SCENARIO_DATA_DIRNAME):
         config_set, grouped_files = parse_dataset(dataset_dir,scenario_data_dirname=scenario_data_dirname)
+        self.__cache = {}
         self.config_set = config_set
         self.grouped_files = grouped_files
         for group in self.grouped_files:
@@ -66,6 +67,12 @@ class ScenariosDataset(object):
                 break
         return result
 
+    def _get_data(self,scenario_file):
+        key = (scenario_file.scenario_id,scenario_file.attribute_id,scenario_file.spatial_resolution_id)
+        if key not in self.__cache:
+            self.__cache[key] = scenario_file.get_data()
+        return self.__cache[key]
+
     def get_genmix(self,year,scenario_id,geography_ids):
         """
         Return dataframe indexed by generator type and showing select attributes.
@@ -75,20 +82,24 @@ class ScenariosDataset(object):
                                     scenario_file.attribute['units'])
 
         def get_national_data(scenario_file):
-            data = scenario_file.get_data()
-            return pds.Series([values[year] for gen_type, values in data.items()],
-                              index=[gen_type for gen_type in data.keys()],
-                              name=attribute_label(scenario_file))
+            data = self._get_data(scenario_file)
+            tmp = []; index = []
+            for gen_type, values in data.items():
+                tmp.append(values[year])
+                index.append(gen_type)
+            return pds.Series(tmp,index=index,name=attribute_label(scenario_file))
 
         def get_states_data(scenario_file,states):
-            data = scenario_file.get_data()
+            data = self._get_data(scenario_file)
             result = None
             for state in states:
                 state_data = data[state]
                 extra_key = list(state_data.keys())[0]
-                tmp = pds.Series([values[year] for gen_type, values in state_data[extra_key].items()],
-                                 index=[gen_type for gen_type in state_data[extra_key].keys()],
-                                 name=attribute_label(scenario_file))
+                tmp = []; index = []
+                for gen_type, values in state_data[extra_key].items():
+                    tmp.append(values[year])
+                    index.append(gen_type)
+                tmp = pds.Series(tmp,index=index,name=attribute_label(scenario_file))
                 if result is None:
                     result = tmp
                     continue
