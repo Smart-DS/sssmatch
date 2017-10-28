@@ -14,6 +14,9 @@ logger = logging.getLogger(__name__)
 
 
 class AML(Enum):
+    """
+    Supported Algebraic Modeling Languages
+    """
     GAMS = auto()
 
 
@@ -62,6 +65,9 @@ class Request(object):
 
 
     def drop_default_gendists(self,filename=None):
+        """
+        Prepopulates a gendists csv and saves it to filename, see fulfill. 
+        """
         data = []
         for g in self.gentypes:
             for gg in self.gentypes:
@@ -276,7 +282,11 @@ class Request(object):
         print(self.result_summary)
 
 
-class Model(object): 
+class Model(object):
+    """
+    Base class for optimization models that determine the new, by node and 
+    generation type, generation mix for a given power system.
+    """ 
     MODEL_FILE = None
 
     def __init__(self,request,outdir):
@@ -305,6 +315,10 @@ class Model(object):
 
 
 class GamsModel(Model):
+    """
+    Realization of Model using the GAMS AML. Depends on gdx-pandas, which is 
+    a Python package available on github.com.
+    """
     MODEL_FILE = 'match_generators.gms'
 
     def __init__(self,request,outdir):
