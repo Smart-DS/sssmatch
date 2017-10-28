@@ -14,8 +14,8 @@ for dirpath, dirnames, filenames in os.walk('sssmixes'):
 
 setup(
     name='sssmatch',
-    version='0.3.0',
-    author='Elaine Hale',
+    version='0.4.0',
+    author='Elaine T. Hale',
     author_email='elaine.hale@nrel.gov',
     packages=['sssmatch', 'sssparser'],
     package_data={'sssmatch': ['models/*.csv',
