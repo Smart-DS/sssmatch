@@ -4,6 +4,7 @@ Apply NREL Standard Scenario generation mixes to arbitrary transmission systems.
 
 [Install](#install) | [Use](#use) | [Uninstall](#uninstall)
 
+
 ## Use
 
 sssmatch was designed primarily for use on the command line. The command-line 
@@ -24,7 +25,7 @@ is a desire to explore a similar system served by a different mix of generator
 types. 
 
 Once `sssmatch` is installed, the CLI can be accessed with `sssm.py` or 
-`python /your/path/to/PythonXX/Scripts.sssm.py`, and has a fully documented help 
+`python /your/path/to/PythonXX/Scripts/sssm.py`, and has a fully documented help 
 menu. For a more detailed example, please see 
 [demo_sssmatch_applied_to_rts_gmlc.ipynb](https://github.com/Smart-DS/demos/blob/master/demo_sssmatch_applied_to_rts_gmlc.ipynb).
 
@@ -38,8 +39,9 @@ pip install git+https://github.com/Smart-DS/sssmatch.git@master
 or
 
 ```
-pip install git+https://github.com/Smart-DS/sssmatch.git@v0.3.0
+pip install git+https://github.com/Smart-DS/sssmatch.git@v0.4.0
 ```
+
 
 ## Uninstall
 
