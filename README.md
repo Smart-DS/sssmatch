@@ -1,6 +1,7 @@
 # sssmatch
 
-Apply NREL Standard Scenario generation mixes to arbitrary transmission systems.
+Apply [NREL Standard Scenario](https://www.nrel.gov/analysis/data-tech-baseline.html) 
+generation mixes to arbitrary transmission systems.
 
 [Install](#install) | [Use](#use) | [Uninstall](#uninstall)
 
@@ -42,6 +43,12 @@ or
 pip install git+https://github.com/Smart-DS/sssmatch.git@v0.4.0
 ```
 
+Running the match functionality requires solving an optimization model. 
+Currently the model is only implemented in [GAMS](https://www.gams.com/), and 
+the model input/output is handled with [gdx-pandas](https://github.com/NREL/gdx-pandas), 
+so these are additional dependencies to access full functionality. If you would
+like to use the tool, but need support for a different algebraic modeling 
+language (AML), please open an issue.
 
 ## Uninstall
 
