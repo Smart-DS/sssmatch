@@ -35,6 +35,7 @@ class ScenariosDataset(object):
     def __init__(self,dataset_dir,scenario_data_dirname=DEFAULT_SCENARIO_DATA_DIRNAME):
         config_set, grouped_files = parse_dataset(dataset_dir,scenario_data_dirname=scenario_data_dirname)
         self.__cache = {}
+        self.name = scenario_data_dirname
         self.config_set = config_set
         self.grouped_files = grouped_files
         for group in self.grouped_files:
@@ -96,6 +97,11 @@ class ScenariosDataset(object):
     def get_genmix(self,year,scenario_id,geography_ids):
         """
         Return dataframe indexed by generator type and showing select attributes.
+
+        Arguments:
+            - year (string) - a year in self.years
+            - scenario_id (string) - a scenario in self.scenarios
+            - geogrpahy_id (list of strings) - a subset of self.geographies
         """
         def attribute_label(scenario_file):
             return "{} ({})".format(scenario_file.attribute['label'],
@@ -155,3 +161,35 @@ class ScenariosDataset(object):
         totals.name = 'TOTAL'
         result = pds.concat([result,pds.DataFrame(totals).T])
         return result
+
+    def get_timeseries(self,scenario_id,geography_ids):
+        """
+        Calls self.get_genmix for every year in self.years. Returns a 
+        pandas.Series indexed by ['dataset','scenario','geography','year',
+        'gentype','variable']. The geography key is ','.join(geography_ids).
+        """
+        data = []
+        for yr in self.years:
+            mix = self.get_genmix(yr,scenario_id,geography_ids)
+            mix.index.name = 'gentype'
+            value_vars = mix.columns
+            mix = mix.reset_index()
+            mix['dataset'] = self.name
+            mix['scenario'] = scenario_id
+            mix['geography'] = ','.join(geography_ids)
+            mix['year'] = int(yr)
+            mix = pds.melt(mix,
+                           id_vars=['dataset','scenario','geography','year','gentype'],
+                           value_vars=value_vars)
+            mix = multi_index(mix,['dataset','scenario','geography','year','gentype','variable'])
+            data.append(mix)
+        return pds.concat(data)
+
+# Helpers
+
+def multi_index(df, cols):
+    result = df.copy()
+    result.index = result[cols[0]] if len(cols) == 1 else pds.MultiIndex.from_tuples(list(zip(*[result[col].tolist() for col in cols])),names = cols)
+    for col in cols:
+        del result[col]
+    return result
