@@ -23,7 +23,7 @@ pip install git+https://github.com/Smart-DS/sssmatch.git@master
 or
 
 ```
-pip install git+https://github.com/Smart-DS/sssmatch.git@v0.4.0
+pip install git+https://github.com/Smart-DS/sssmatch.git@v0.5.0
 ```
 
 Running the match functionality requires solving an optimization model. 
