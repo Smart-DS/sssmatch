@@ -20,6 +20,13 @@ from distutils.core import setup
 import glob
 import os
 
+here = os.path.abspath(os.path.dirname(__file__))
+
+with open(os.path.join(here, 'sssmatch', '_version.py'), encoding='utf-8') as f:
+    version = f.read()
+
+version = version.split()[2].strip('"').strip("'")
+
 data_files = []
 data_install_dir = os.path.join('Lib','site-packages')
 curdir = None
@@ -32,7 +39,7 @@ for dirpath, dirnames, filenames in os.walk('sssmixes'):
 
 setup(
     name='sssmatch',
-    version='0.5.0',
+    version=version,
     author='Elaine T. Hale',
     author_email='elaine.hale@nrel.gov',
     packages=['sssmatch', 'sssparser'],
