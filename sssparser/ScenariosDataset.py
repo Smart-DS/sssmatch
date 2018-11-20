@@ -33,6 +33,15 @@ class ScenariosDataset(object):
     GENMIX_ATTRIBUTES = ['capacity','generation']
 
     def __init__(self,dataset_dir,scenario_data_dirname=DEFAULT_SCENARIO_DATA_DIRNAME):
+        """
+        Parameters
+        ----------
+        dataset_dir : str
+            Name of the directory containing the dataset to be examined, e.g. 
+            'NREL Standard Scenarios 2016'
+        scenario_data_dirname : str
+            Directory that holds all of the datasets of interest (e.g. sssmatch/sssmixes)
+        """
         config_set, grouped_files = parse_dataset(dataset_dir,scenario_data_dirname=scenario_data_dirname)
         self.__cache = {}
         self.name = scenario_data_dirname
@@ -47,6 +56,11 @@ class ScenariosDataset(object):
         """
         Assumes generator types can be inferred from ScenarioFiles with 
         attribute_id == 'capacity' and spatial_resolution_id == 'national'.
+
+        Returns
+        -------
+        list
+            List of generator types found in the ScenariosDataset
         """
         gentypes = set()
         for group in self.grouped_files:
