@@ -85,7 +85,7 @@ git checkout master # or whatever branch you were on
     python setup.py sdist
     twine upload --repository testpypi dist/*
     # look at https://test.pypi.org/project/sssmatch/
-    pip install --index-url https://test.pypi.org/simple/sssmatch
+    pip install --index-url https://test.pypi.org/simple/ sssmatch
     # check it out ... fix things ...
     ```
 
