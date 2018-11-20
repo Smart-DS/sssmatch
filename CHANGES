@@ -1,3 +1,5 @@
+v0.5.0, 11/20/2018 -- Add 2018 standard scenarios
+                      Improve documentation and deploy on pypi
 v0.4.0, 10/30/2017 -- Initial public release
                       Update to actual final 2017 standard scenarios
 v0.3.0, 09/19/2017 -- Update to "final" 2017 standard scenarios
