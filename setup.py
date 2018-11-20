@@ -48,5 +48,6 @@ setup(
     data_files=data_files,
     scripts=['bin/sssm.py'],
     url='https://github.com/Smart-DS/sssmatch',
-    description='Apply NREL Standard Scenario generation mixes to arbitrary transmission systems.'
+    description='Apply NREL Standard Scenario generation mixes to arbitrary transmission systems.',
+    long_description=open('README.txt').read()
 )
