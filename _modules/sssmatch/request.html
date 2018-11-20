@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sssmatch.request &mdash; sssmatch 0.5.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> sssmatch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview of sssmatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/modules.html">sssmatch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html">sssmatch package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssmatch.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch.cli">sssmatch.cli module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch.request">sssmatch.request module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html">sssparser package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.DataConfig">sssparser.DataConfig module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ParseScenarios">sssparser.ParseScenarios module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ScenarioFile">sssparser.ScenarioFile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ScenariosDataset">sssparser.ScenariosDataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/sssmatch.html">sssmatch package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch.cli">sssmatch.cli module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch.request">sssmatch.request module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/sssparser.html">sssparser package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.DataConfig">sssparser.DataConfig module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ParseScenarios">sssparser.ParseScenarios module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ScenarioFile">sssparser.ScenarioFile module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ScenariosDataset">sssparser.ScenariosDataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">sssmatch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../sssmatch.html">sssmatch</a> &raquo;</li>
+        
+      <li>sssmatch.request</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for sssmatch.request</h1><div class="highlight"><pre>
+<span></span><span class="c1"># [LICENSE]</span>
+<span class="c1"># Copyright (c) 2018 Alliance for Sustainable Energy, LLC. All rights reserved.</span>
+<span class="c1"># </span>
+<span class="c1"># NOTICE: This software was developed at least in part by Alliance for Sustainable Energy, LLC (&quot;Alliance&quot;) under Contract No. DE-AC36-08GO28308 with the U.S. Department of Energy and the U.S. Government retains for itself and others acting on its behalf a nonexclusive, paid-up, irrevocable worldwide license in the software to reproduce, prepare derivative works, distribute copies to the public, perform publicly and display publicly, and to permit others to do so.</span>
+<span class="c1"># </span>
+<span class="c1"># Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</span>
+<span class="c1"># </span>
+<span class="c1"># 1. Redistributions of source code must retain the above copyright notice, the above government rights notice, this list of conditions and the following disclaimer.</span>
+<span class="c1"># </span>
+<span class="c1"># 2. Redistributions in binary form must reproduce the above copyright notice, the above government rights notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</span>
+<span class="c1"># </span>
+<span class="c1"># 3.  Redistribution of this software, without modification, must refer to the software by the same designation. Redistribution of a modified version of this software (i) may not refer to the modified version by the same designation, or by any confusingly similar designation, and (ii) must refer to the underlying software originally provided by Alliance as &quot;sssmatch&quot;. Except to comply with the foregoing, the term &quot;sssmatch&quot;, or any confusingly similar designation may not be used to refer to any modified version of this software or any modified version of the underlying software originally provided by Alliance without the prior written consent of Alliance.</span>
+<span class="c1"># </span>
+<span class="c1"># 4.  The name of the copyright holder, contributors, the United States Government, the United States Department of Energy, or any of their employees may not be used to endorse or promote products derived from this software without specific prior written permission.</span>
+<span class="c1"># </span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER, CONTRIBUTORS, UNITED STATES GOVERNMENT OR UNITED STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<span class="c1"># [/LICENSE]</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="k">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">shutil</span> <span class="k">import</span> <span class="n">copyfile</span>
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="k">import</span> <span class="n">call</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pds</span>
+
+<span class="kn">from</span> <span class="nn">sssmatch</span> <span class="k">import</span> <span class="n">SSSMatchError</span><span class="p">,</span> <span class="n">models_dir</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AML"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.AML">[docs]</a><span class="k">class</span> <span class="nc">AML</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Supported Algebraic Modeling Languages</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">GAMS</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Request"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request">[docs]</a><span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">RESOURCE_INDEPENDENT</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Biopower&#39;</span><span class="p">,</span><span class="s1">&#39;Coal&#39;</span><span class="p">,</span><span class="s1">&#39;NG-CC&#39;</span><span class="p">,</span><span class="s1">&#39;NG-CT&#39;</span><span class="p">,</span><span class="s1">&#39;Nuclear&#39;</span><span class="p">,</span><span class="s1">&#39;Oil-Gas-Steam&#39;</span><span class="p">,</span><span class="s1">&#39;Storage&#39;</span><span class="p">]</span>
+    <span class="n">R2PD_TECHS_MAP</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Land-based Wind&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;wind&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;Rooftop PV&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;solar&#39;</span><span class="p">,</span><span class="s1">&#39;rooftop&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;Utility PV&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;solar&#39;</span><span class="p">,</span><span class="s1">&#39;one-axis-tracking&#39;</span><span class="p">]}</span>
+    <span class="n">DEFAULT_GENTYPE_DISTANCE_FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">models_dir</span><span class="p">,</span><span class="s1">&#39;default_gendists.csv&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nodes</span><span class="p">,</span><span class="n">generators</span><span class="p">,</span><span class="n">dataset</span><span class="p">,</span><span class="n">desired_mix</span><span class="p">,</span><span class="n">exclusions</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="n">nodes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generators</span> <span class="o">=</span> <span class="n">generators</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">original_desired_mix</span> <span class="o">=</span> <span class="n">desired_mix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exclusions</span> <span class="o">=</span> <span class="n">exclusions</span> <span class="k">if</span> <span class="n">exclusions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
+
+
+<div class="viewcode-block" id="Request.nodes_columns"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.nodes_columns">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">nodes_columns</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">re_types</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;node_id&#39;</span><span class="p">,</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span><span class="s1">&#39;peak load (MW)&#39;</span><span class="p">,</span><span class="s1">&#39;annual load (GWh)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">re_types</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Request.generators_columns"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.generators_columns">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">generators_columns</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;node_id&#39;</span><span class="p">,</span><span class="s1">&#39;generator type&#39;</span><span class="p">,</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Request.generators_swapped_columns"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.generators_swapped_columns">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">generators_swapped_columns</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;node_id&#39;</span><span class="p">,</span><span class="s1">&#39;from generator type&#39;</span><span class="p">,</span><span class="s1">&#39;to generator type&#39;</span><span class="p">,</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">]</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gentypes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">gentype</span> <span class="k">for</span> <span class="n">gentype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">gentypes</span> <span class="k">if</span> <span class="n">gentype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exclusions</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">current_mix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">generators</span><span class="p">,</span>
+                                 <span class="n">values</span><span class="o">=</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">,</span>
+                                 <span class="n">index</span><span class="o">=</span><span class="s1">&#39;generator type&#39;</span><span class="p">,</span>
+                                 <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Current Capacity (MW)&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+
+<div class="viewcode-block" id="Request.drop_default_gendists"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.drop_default_gendists">[docs]</a>    <span class="k">def</span> <span class="nf">drop_default_gendists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prepopulates a gendists csv and saves it to filename, see fulfill. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gentypes</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">gg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gentypes</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">gg</span> <span class="o">==</span> <span class="n">g</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">gg</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span> <span class="ow">or</span> \
+                   <span class="p">(</span><span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span> <span class="ow">and</span> <span class="n">gg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span><span class="p">):</span>
+                    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">g</span><span class="p">,</span><span class="n">gg</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">g</span><span class="p">,</span><span class="n">gg</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_GENTYPE_DISTANCE_FILE</span>
+        <span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;gg&#39;</span><span class="p">,</span><span class="s1">&#39;Value&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Request.preprocess"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.preprocess">[docs]</a>    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">desired_mix</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">original_desired_mix</span><span class="p">)</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">desired_mix</span><span class="p">[</span><span class="s1">&#39;Capacity Fraction&#39;</span><span class="p">];</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">desired_mix</span><span class="p">[</span><span class="s1">&#39;Generation Fraction&#39;</span><span class="p">]</span>
+
+        <span class="c1"># filter desired_mix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">desired_mix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">desired_mix</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">desired_mix</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gentypes</span><span class="p">)]</span>
+
+        <span class="c1"># scale desired_mix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system_load</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="s1">&#39;annual load (GWh)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1000.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genmix_generation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">annual_useable_generation</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">original_desired_mix</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">gentypes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">system_load</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">genmix_generation</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;System load is </span><span class="si">{:.3f}</span><span class="s2"> TWh. &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">system_load</span><span class="p">)</span> <span class="o">+</span> 
+                    <span class="s2">&quot;The generation mix is based on </span><span class="si">{:.3f}</span><span class="s2"> TWh of useable generation. &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genmix_generation</span><span class="p">)</span> <span class="o">+</span> 
+                    <span class="s2">&quot;Thus the generation mix capacities will be scaled by a factor of </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">desired_mix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">desired_mix</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span>
+
+        <span class="c1"># determine if request is at all feasible</span>
+        <span class="n">desired_mw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">desired_mix</span><span class="p">[</span><span class="s1">&#39;Capacity (GW)&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1000.0</span>
+        <span class="n">desired_mw</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Desired Capacity (MW)&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_mix</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">desired_mw</span><span class="p">),</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Request summary:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">))</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_independent_test</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_dependent_test</span><span class="p">()</span></div>
+
+        
+    <span class="k">def</span> <span class="nf">_resource_independent_test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">totals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span><span class="p">)]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">totals</span><span class="p">[</span><span class="s1">&#39;Desired Capacity (MW)&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">totals</span><span class="p">[</span><span class="s1">&#39;Current Capacity (MW)&#39;</span><span class="p">]:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Unable to create a new generation mix that has more &quot;</span> <span class="o">+</span> \
+                  <span class="s2">&quot;resource-independent capacity than the current system.&quot;</span> <span class="o">+</span> \
+                  <span class="s2">&quot;Resource-independent generation types are: </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span><span class="p">)</span> <span class="o">+</span> \
+                  <span class="s2">&quot;Current and desired capacity of this sort is:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">totals</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">SSSMatchError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Resource-independent generation types are: </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span><span class="p">)</span> <span class="o">+</span> \
+                     <span class="s2">&quot;Current and desired capacity of this sort is:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">totals</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+
+    <span class="k">def</span> <span class="nf">_resource_dependent_test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">gentype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">gentype</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">desired</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gentype</span><span class="p">,</span><span class="s1">&#39;Desired Capacity (MW)&#39;</span><span class="p">]</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gentype</span><span class="p">,</span><span class="s1">&#39;Current Capacity (MW)&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">desired</span> <span class="o">&gt;</span> <span class="n">current</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">gentype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Unable to create a new generation mix with </span><span class="si">{}</span><span class="s2"> MW </span><span class="si">{}</span><span class="s2"> capacity,&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span><span class="n">gentype</span><span class="p">)</span> <span class="o">+</span> \
+                          <span class="s2">&quot;because there is only </span><span class="si">{}</span><span class="s2"> MW in current capacity, &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="o">+</span> \
+                          <span class="s2">&quot;and no maximum quantity is specified for each node.&quot;</span>
+                    <span class="k">raise</span> <span class="n">SSSMatchError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="n">maximum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">gentype</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">desired</span> <span class="o">&gt;</span> <span class="n">maximum</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Unable to create a new generation mix with </span><span class="si">{}</span><span class="s2"> MW </span><span class="si">{}</span><span class="s2"> capacity, &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">desired</span><span class="p">,</span><span class="n">gentype</span><span class="p">)</span> <span class="o">+</span> \
+                          <span class="s2">&quot;because the specified maximum supply only </span><span class="si">{}</span><span class="s2"> MW.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">maximum</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">SSSMatchError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+
+<div class="viewcode-block" id="Request.annual_useable_generation"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.annual_useable_generation">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">annual_useable_generation</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">genmix</span><span class="p">,</span><span class="n">gentypes</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the useable generation in TWh for genmix.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">genmix</span><span class="p">[</span><span class="n">genmix</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">gentypes</span><span class="p">)][</span><span class="s1">&#39;Generation (TWh)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s1">&#39;Curtailment&#39;</span> <span class="ow">in</span> <span class="n">genmix</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">genmix</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Curtailment&#39;</span><span class="p">,</span><span class="s1">&#39;Generation (TWh)&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="Request.fulfill"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.fulfill">[docs]</a>    <span class="k">def</span> <span class="nf">fulfill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">outdir</span><span class="p">,</span><span class="n">gendists</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">precision</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">aml</span><span class="o">=</span><span class="n">AML</span><span class="o">.</span><span class="n">GAMS</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            - outdir (str) - directory in which to run matching model and place </span>
+<span class="sd">              results</span>
+<span class="sd">            - gendists (str) - path to csv of (gentype_from, gentype_to, </span>
+<span class="sd">              distance)</span>
+<span class="sd">            - precision (int) - number of digits after the decimal point to </span>
+<span class="sd">              match desired mix to, in MW</span>
+<span class="sd">            - aml (AML) - value of the AML enum that corresponds to the </span>
+<span class="sd">              algebraic modeling language you would like to use</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;summary&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">()</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">aml</span> <span class="o">==</span> <span class="n">AML</span><span class="o">.</span><span class="n">GAMS</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">GamsModel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">outdir</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Choose from one of the available algebraic modeling languages: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">val</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">AML</span><span class="p">]))</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">gendists</span><span class="o">=</span><span class="n">gendists</span><span class="p">,</span><span class="n">precision</span><span class="o">=</span><span class="n">precision</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">collect_results</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SSSMatchError</span><span class="p">(</span><span class="s1">&#39;Running the match model </span><span class="si">{}</span><span class="s1"> failed. Examine outputs in </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">MODEL_FILE</span><span class="p">,</span><span class="n">outdir</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_results</span><span class="p">(</span><span class="n">outdir</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Request.register_results"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.register_results">[docs]</a>    <span class="k">def</span> <span class="nf">register_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">capacity</span><span class="p">,</span><span class="n">capacity_added</span><span class="p">,</span><span class="n">capacity_kept</span><span class="p">,</span>
+                         <span class="n">capacity_swapped</span><span class="p">,</span><span class="n">capacity_removed</span><span class="p">,</span><span class="n">distance</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        All of the arguments except for distance are dataframes in the same </span>
+<span class="sd">        format as self.generators. Distance is the scalar objective function </span>
+<span class="sd">        value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">capacity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_added</span> <span class="o">=</span> <span class="n">capacity_added</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_kept</span> <span class="o">=</span> <span class="n">capacity_kept</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_swapped</span> <span class="o">=</span> <span class="n">capacity_swapped</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_removed</span> <span class="o">=</span> <span class="n">capacity_removed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compile_result_summary</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Request.compile_result_summary"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.compile_result_summary">[docs]</a>    <span class="k">def</span> <span class="nf">compile_result_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">)</span>
+
+        <span class="n">kept_mw</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">capacity_kept</span><span class="p">,</span>
+                                  <span class="n">values</span><span class="o">=</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">,</span>
+                                  <span class="n">index</span><span class="o">=</span><span class="s1">&#39;generator type&#39;</span><span class="p">,</span>
+                                  <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+        <span class="n">kept_mw</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;kept (MW)&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">kept_mw</span><span class="p">),</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">swapped_out</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">capacity_swapped</span><span class="p">,</span>
+                                      <span class="n">values</span><span class="o">=</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">,</span>
+                                      <span class="n">index</span><span class="o">=</span><span class="s1">&#39;from generator type&#39;</span><span class="p">,</span>
+                                      <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+        <span class="n">swapped_out</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;swapped out (MW)&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">swapped_out</span><span class="p">),</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">swapped_in</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">capacity_swapped</span><span class="p">,</span>
+                                     <span class="n">values</span><span class="o">=</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">,</span>
+                                     <span class="n">index</span><span class="o">=</span><span class="s1">&#39;to generator type&#39;</span><span class="p">,</span>
+                                     <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+        <span class="n">swapped_in</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;swapped in (MW)&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">swapped_in</span><span class="p">),</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">added</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">capacity_added</span><span class="p">,</span>
+                                <span class="n">values</span><span class="o">=</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">,</span>
+                                <span class="n">index</span><span class="o">=</span><span class="s1">&#39;generator type&#39;</span><span class="p">,</span>
+                                <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+        <span class="n">added</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;added (MW)&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">added</span><span class="p">),</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">removed</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">capacity_removed</span><span class="p">,</span>
+                                  <span class="n">values</span><span class="o">=</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">,</span>
+                                  <span class="n">index</span><span class="o">=</span><span class="s1">&#39;generator type&#39;</span><span class="p">,</span>
+                                  <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+        <span class="n">removed</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;removed (MW)&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">removed</span><span class="p">),</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">final</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">,</span>
+                                <span class="n">values</span><span class="o">=</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">,</span>
+                                <span class="n">index</span><span class="o">=</span><span class="s1">&#39;generator type&#39;</span><span class="p">,</span>
+                                <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+        <span class="n">final</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;final (MW)&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">final</span><span class="p">),</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">total</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;TOTAL&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="p">,</span><span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">total</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">])</span>
+        <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="Request.save_results"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.save_results">[docs]</a>    <span class="k">def</span> <span class="nf">save_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">outdir</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;distance&#39;</span><span class="p">),</span> <span class="s1">&#39;This method can only be run after a successful call to self.fulfill.&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span><span class="s1">&#39;new_generators.csv&#39;</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">details_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span><span class="s1">&#39;match_details&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">details_dir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">details_dir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">details_dir</span><span class="p">,</span><span class="s1">&#39;capacity.csv&#39;</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_added</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">details_dir</span><span class="p">,</span><span class="s1">&#39;capacity_added.csv&#39;</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_kept</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">details_dir</span><span class="p">,</span><span class="s1">&#39;capacity_kept.csv&#39;</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_swapped</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">details_dir</span><span class="p">,</span><span class="s1">&#39;capacity_swapped.csv&#39;</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity_removed</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">details_dir</span><span class="p">,</span><span class="s1">&#39;capacity_removed.csv&#39;</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">gentype</span><span class="p">,</span> <span class="n">r2pd_call</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">R2PD_TECHS_MAP</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">r2pd_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">r2pd_call</span><span class="p">))</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">[</span><span class="s1">&#39;generator type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">gentype</span><span class="p">][[</span><span class="s1">&#39;node_id&#39;</span><span class="p">,</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">r2pd_dir</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">r2pd_dir</span><span class="p">)</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">r2pd_dir</span><span class="p">,</span><span class="s1">&#39;generators.csv&#39;</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">r2pd_dir</span><span class="p">,</span><span class="s1">&#39;nodes.csv&#39;</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span>        </div>
+
+
+<div class="viewcode-block" id="Request.print_report"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Request.print_report">[docs]</a>    <span class="k">def</span> <span class="nf">print_report</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result_summary</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for optimization models that determine the new, by node and </span>
+<span class="sd">    generation type, generation mix for a given power system.</span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="n">MODEL_FILE</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">request</span><span class="p">,</span><span class="n">outdir</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">request</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outdir</span> <span class="o">=</span> <span class="n">outdir</span>
+
+<div class="viewcode-block" id="Model.setup"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Model.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">gendists</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">precision</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span> 
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outdir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outdir</span><span class="p">)</span>
+        <span class="n">copyfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">models_dir</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">MODEL_FILE</span><span class="p">),</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">MODEL_FILE</span><span class="p">))</span>
+
+        <span class="n">gendists_filename</span> <span class="o">=</span> <span class="n">gendists</span> <span class="k">if</span> <span class="n">gendists</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">DEFAULT_GENTYPE_DISTANCE_FILE</span>
+        <span class="n">gendists_df</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">gendists_filename</span><span class="p">)</span>
+        <span class="n">gendists_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;gg&#39;</span><span class="p">,</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span>
+        <span class="n">gendists_df</span> <span class="o">=</span> <span class="n">gendists_df</span><span class="p">[</span><span class="n">gendists_df</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">gentypes</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">gendists_df</span><span class="o">.</span><span class="n">gg</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">gentypes</span><span class="p">)]</span>
+
+        <span class="n">desired_capacity_df</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Desired Capacity (MW)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">precision</span><span class="p">)))</span>
+        <span class="n">desired_capacity_df</span> <span class="o">=</span> <span class="n">desired_capacity_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">desired_capacity_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">gendists_df</span><span class="p">,</span> <span class="n">desired_capacity_df</span></div>
+
+<div class="viewcode-block" id="Model.run"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Model.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Model.collect_results"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.Model.collect_results">[docs]</a>    <span class="k">def</span> <span class="nf">collect_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="GamsModel"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.GamsModel">[docs]</a><span class="k">class</span> <span class="nc">GamsModel</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Realization of Model using the GAMS AML. Depends on gdx-pandas, which is </span>
+<span class="sd">    a Python package available on github.com.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">MODEL_FILE</span> <span class="o">=</span> <span class="s1">&#39;match_generators.gms&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">request</span><span class="p">,</span><span class="n">outdir</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">outdir</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GamsModel.setup"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.GamsModel.setup">[docs]</a>    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">gendists</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">precision</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">gendists_df</span><span class="p">,</span> <span class="n">desired_capacity_df</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">gendists</span><span class="o">=</span><span class="n">gendists</span><span class="p">,</span><span class="n">precision</span><span class="o">=</span><span class="n">precision</span><span class="p">)</span>
+
+        <span class="kn">from</span> <span class="nn">gdxpds.gdx</span> <span class="k">import</span> <span class="n">GdxFile</span><span class="p">,</span> <span class="n">GdxSymbol</span><span class="p">,</span> <span class="n">GamsDataType</span>
+        <span class="k">with</span> <span class="n">GdxFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">ingdx</span><span class="p">:</span>
+            <span class="c1"># Sets</span>
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GdxSymbol</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="n">GamsDataType</span><span class="o">.</span><span class="n">Set</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]))</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="s1">&#39;node_id&#39;</span><span class="p">])</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">ingdx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span>
+
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GdxSymbol</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">GamsDataType</span><span class="o">.</span><span class="n">Set</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">]))</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">g</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">gentypes</span><span class="p">],</span>
+                               <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;Value&#39;</span><span class="p">])</span>
+            <span class="n">ingdx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span>
+
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GdxSymbol</span><span class="p">(</span><span class="s1">&#39;g_indep&#39;</span><span class="p">,</span><span class="n">GamsDataType</span><span class="o">.</span><span class="n">Set</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">]))</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">g</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">gentypes</span> <span class="k">if</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span><span class="p">],</span>
+                               <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;Value&#39;</span><span class="p">])</span>
+            <span class="n">ingdx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span>
+
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GdxSymbol</span><span class="p">(</span><span class="s1">&#39;g_dep&#39;</span><span class="p">,</span><span class="n">GamsDataType</span><span class="o">.</span><span class="n">Set</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">]))</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">g</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">gentypes</span> <span class="k">if</span> <span class="n">g</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span><span class="p">],</span>
+                               <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;Value&#39;</span><span class="p">])</span>
+            <span class="n">ingdx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span>
+
+            <span class="c1"># Parameters</span>
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GdxSymbol</span><span class="p">(</span><span class="s1">&#39;desired_capacity&#39;</span><span class="p">,</span><span class="n">GamsDataType</span><span class="o">.</span><span class="n">Parameter</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">]))</span>
+            <span class="n">ingdx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">desired_capacity_df</span>
+
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GdxSymbol</span><span class="p">(</span><span class="s1">&#39;current_capacity&#39;</span><span class="p">,</span><span class="n">GamsDataType</span><span class="o">.</span><span class="n">Parameter</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">]))</span>
+            <span class="c1"># pivot with sum on capacity in case there are multiple units of type g at node n</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">generators</span><span class="p">,</span>
+                                 <span class="n">values</span><span class="o">=</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">,</span>
+                                 <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node_id&#39;</span><span class="p">,</span><span class="s1">&#39;generator type&#39;</span><span class="p">],</span>
+                                 <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span>
+            <span class="n">ingdx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span>
+
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GdxSymbol</span><span class="p">(</span><span class="s1">&#39;g_dist&#39;</span><span class="p">,</span><span class="n">GamsDataType</span><span class="o">.</span><span class="n">Parameter</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;gg&#39;</span><span class="p">]))</span>
+            <span class="n">ingdx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">gendists_df</span>
+
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GdxSymbol</span><span class="p">(</span><span class="s1">&#39;current_indep_capacity&#39;</span><span class="p">,</span><span class="n">GamsDataType</span><span class="o">.</span><span class="n">Parameter</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]))</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">generators</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">generators</span><span class="p">[</span><span class="s1">&#39;generator type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span><span class="p">)],</span>
+                                 <span class="n">values</span><span class="o">=</span><span class="s1">&#39;capacity (MW)&#39;</span><span class="p">,</span>
+                                 <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;node_id&#39;</span><span class="p">],</span>
+                                 <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span>
+            <span class="n">ingdx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span>
+
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">GdxSymbol</span><span class="p">(</span><span class="s1">&#39;maximum_capacity&#39;</span><span class="p">,</span><span class="n">GamsDataType</span><span class="o">.</span><span class="n">Parameter</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;g_dep&#39;</span><span class="p">]))</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">gentypes</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">RESOURCE_INDEPENDENT</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="s1">&#39;node_id&#39;</span><span class="p">])</span>
+                    <span class="n">tmp</span><span class="p">[</span><span class="s1">&#39;g_dep&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span>
+                    <span class="n">tmp</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">g</span><span class="p">]</span>
+                    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;g_dep&#39;</span><span class="p">,</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span>
+            <span class="n">ingdx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">df</span>
+
+            <span class="n">ingdx</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span><span class="s1">&#39;in.gdx&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="GamsModel.run"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.GamsModel.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">curdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outdir</span><span class="p">)</span>
+        <span class="n">call</span><span class="p">([</span><span class="s1">&#39;gams&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">MODEL_FILE</span><span class="p">])</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">curdir</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GamsModel.collect_results"><a class="viewcode-back" href="../../api/sssmatch.html#sssmatch.request.GamsModel.collect_results">[docs]</a>    <span class="k">def</span> <span class="nf">collect_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span><span class="s1">&#39;MatchGenerationMix_p.gdx&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">result_file</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="kn">from</span> <span class="nn">gdxpds.gdx</span> <span class="k">import</span> <span class="n">GdxFile</span>
+        <span class="k">with</span> <span class="n">GdxFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">p_gdx</span><span class="p">:</span>
+            <span class="n">p_gdx</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">result_file</span><span class="p">)</span>
+
+            <span class="n">variables</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Capacity&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">generators_columns</span><span class="p">()),</span>
+                         <span class="p">(</span><span class="s1">&#39;CapacityAdded&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">generators_columns</span><span class="p">()),</span>
+                         <span class="p">(</span><span class="s1">&#39;CapacityKept&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">generators_columns</span><span class="p">()),</span>
+                         <span class="p">(</span><span class="s1">&#39;CapacitySwapped&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">generators_swapped_columns</span><span class="p">()),</span>
+                         <span class="p">(</span><span class="s1">&#39;CapacityRemoved&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">generators_columns</span><span class="p">()),</span>
+                         <span class="p">(</span><span class="s1">&#39;Distance&#39;</span><span class="p">,[</span><span class="s1">&#39;Level&#39;</span><span class="p">])]</span>
+
+            <span class="n">capacity_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">generators_columns</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">variable_name</span><span class="p">,</span> <span class="n">column_names</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                <span class="n">p_gdx</span><span class="p">[</span><span class="n">variable_name</span><span class="p">]</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">p_gdx</span><span class="p">[</span><span class="n">variable_name</span><span class="p">]</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:(</span><span class="nb">len</span><span class="p">(</span><span class="n">column_names</span><span class="p">))]</span>
+                <span class="n">tmp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_names</span>
+                <span class="c1"># clear out 0 capacity entries</span>
+                <span class="k">if</span> <span class="n">capacity_column</span> <span class="ow">in</span> <span class="n">tmp</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">tmp</span><span class="p">[</span><span class="n">capacity_column</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">]</span>
+                <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+
+            <span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;Level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">register_results</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Alliance for Sustainable Energy.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.5.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

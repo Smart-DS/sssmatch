@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sssparser.ScenariosDataset &mdash; sssmatch 0.5.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> sssmatch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview of sssmatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/modules.html">sssmatch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html">sssmatch package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssmatch.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch.cli">sssmatch.cli module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch.request">sssmatch.request module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html">sssparser package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.DataConfig">sssparser.DataConfig module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ParseScenarios">sssparser.ParseScenarios module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ScenarioFile">sssparser.ScenarioFile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ScenariosDataset">sssparser.ScenariosDataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/sssparser.html#module-sssparser">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/sssmatch.html">sssmatch package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch.cli">sssmatch.cli module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch.request">sssmatch.request module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssmatch.html#module-sssmatch">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/sssparser.html">sssparser package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.DataConfig">sssparser.DataConfig module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ParseScenarios">sssparser.ParseScenarios module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ScenarioFile">sssparser.ScenarioFile module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser.ScenariosDataset">sssparser.ScenariosDataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/sssparser.html#module-sssparser">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">sssmatch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../sssparser.html">sssparser</a> &raquo;</li>
+        
+      <li>sssparser.ScenariosDataset</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for sssparser.ScenariosDataset</h1><div class="highlight"><pre>
+<span></span><span class="c1"># [LICENSE]</span>
+<span class="c1"># Copyright (c) 2018 Alliance for Sustainable Energy, LLC. All rights reserved.</span>
+<span class="c1"># </span>
+<span class="c1"># NOTICE: This software was developed at least in part by Alliance for Sustainable Energy, LLC (&quot;Alliance&quot;) under Contract No. DE-AC36-08GO28308 with the U.S. Department of Energy and the U.S. Government retains for itself and others acting on its behalf a nonexclusive, paid-up, irrevocable worldwide license in the software to reproduce, prepare derivative works, distribute copies to the public, perform publicly and display publicly, and to permit others to do so.</span>
+<span class="c1"># </span>
+<span class="c1"># Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</span>
+<span class="c1"># </span>
+<span class="c1"># 1. Redistributions of source code must retain the above copyright notice, the above government rights notice, this list of conditions and the following disclaimer.</span>
+<span class="c1"># </span>
+<span class="c1"># 2. Redistributions in binary form must reproduce the above copyright notice, the above government rights notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</span>
+<span class="c1"># </span>
+<span class="c1"># 3.  Redistribution of this software, without modification, must refer to the software by the same designation. Redistribution of a modified version of this software (i) may not refer to the modified version by the same designation, or by any confusingly similar designation, and (ii) must refer to the underlying software originally provided by Alliance as &quot;sssmatch&quot;. Except to comply with the foregoing, the term &quot;sssmatch&quot;, or any confusingly similar designation may not be used to refer to any modified version of this software or any modified version of the underlying software originally provided by Alliance without the prior written consent of Alliance.</span>
+<span class="c1"># </span>
+<span class="c1"># 4.  The name of the copyright holder, contributors, the United States Government, the United States Department of Energy, or any of their employees may not be used to endorse or promote products derived from this software without specific prior written permission.</span>
+<span class="c1"># </span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER, CONTRIBUTORS, UNITED STATES GOVERNMENT OR UNITED STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<span class="c1"># [/LICENSE]</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pds</span>
+
+<span class="kn">from</span> <span class="nn">sssparser</span> <span class="k">import</span> <span class="n">SSSParserError</span>
+<span class="kn">from</span> <span class="nn">.DataConfig</span> <span class="k">import</span> <span class="n">DEFAULT_SCENARIO_DATA_DIRNAME</span>
+<span class="kn">from</span> <span class="nn">.ParseScenarios</span> <span class="k">import</span> <span class="n">parse_dataset</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ScenariosDataset"><a class="viewcode-back" href="../../api/sssparser.html#sssparser.ScenariosDataset.ScenariosDataset">[docs]</a><span class="k">class</span> <span class="nc">ScenariosDataset</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">GENMIX_ATTRIBUTES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;capacity&#39;</span><span class="p">,</span><span class="s1">&#39;generation&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dataset_dir</span><span class="p">,</span><span class="n">scenario_data_dirname</span><span class="o">=</span><span class="n">DEFAULT_SCENARIO_DATA_DIRNAME</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dataset_dir : str</span>
+<span class="sd">            Name of the directory containing the dataset to be examined, e.g. </span>
+<span class="sd">            &#39;NREL Standard Scenarios 2016&#39;</span>
+<span class="sd">        scenario_data_dirname : str</span>
+<span class="sd">            Directory that holds all of the datasets of interest (e.g. sssmatch/sssmixes)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">config_set</span><span class="p">,</span> <span class="n">grouped_files</span> <span class="o">=</span> <span class="n">parse_dataset</span><span class="p">(</span><span class="n">dataset_dir</span><span class="p">,</span><span class="n">scenario_data_dirname</span><span class="o">=</span><span class="n">scenario_data_dirname</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">scenario_data_dirname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_set</span> <span class="o">=</span> <span class="n">config_set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grouped_files</span> <span class="o">=</span> <span class="n">grouped_files</span>
+        <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouped_files</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gentypes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assumes generator types can be inferred from ScenarioFiles with </span>
+<span class="sd">        attribute_id == &#39;capacity&#39; and spatial_resolution_id == &#39;national&#39;.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            List of generator types found in the ScenariosDataset</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gentypes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouped_files</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">attribute_id</span> <span class="o">==</span> <span class="s1">&#39;capacity&#39;</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">spatial_resolution_id</span> <span class="o">==</span> <span class="s1">&#39;national&#39;</span><span class="p">:</span>
+                    <span class="n">gentypes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">gentypes</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">years</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouped_files</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">attribute_id</span> <span class="o">==</span> <span class="s1">&#39;capacity&#39;</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">spatial_resolution_id</span> <span class="o">==</span> <span class="s1">&#39;national&#39;</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">scenarios</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouped_files</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scenario_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">geographies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;national&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouped_files</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">attribute_id</span> <span class="o">==</span> <span class="s1">&#39;capacity&#39;</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">spatial_resolution_id</span> <span class="o">==</span> <span class="s1">&#39;states&#39;</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">_get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">scenario_file</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">scenario_file</span><span class="o">.</span><span class="n">scenario_id</span><span class="p">,</span><span class="n">scenario_file</span><span class="o">.</span><span class="n">attribute_id</span><span class="p">,</span><span class="n">scenario_file</span><span class="o">.</span><span class="n">spatial_resolution_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">scenario_file</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+<div class="viewcode-block" id="ScenariosDataset.get_genmix"><a class="viewcode-back" href="../../api/sssparser.html#sssparser.ScenariosDataset.ScenariosDataset.get_genmix">[docs]</a>    <span class="k">def</span> <span class="nf">get_genmix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">year</span><span class="p">,</span><span class="n">scenario_id</span><span class="p">,</span><span class="n">geography_ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return dataframe indexed by generator type and showing select attributes.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            - year (string) - a year in self.years</span>
+<span class="sd">            - scenario_id (string) - a scenario in self.scenarios</span>
+<span class="sd">            - geogrpahy_id (list of strings) - a subset of self.geographies</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">attribute_label</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scenario_file</span><span class="o">.</span><span class="n">attribute</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                                    <span class="n">scenario_file</span><span class="o">.</span><span class="n">attribute</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">])</span>
+
+        <span class="k">def</span> <span class="nf">get_national_data</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">)</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">gen_type</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">year</span><span class="p">])</span>
+                <span class="n">index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gen_type</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">pds</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">attribute_label</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">))</span>
+
+        <span class="k">def</span> <span class="nf">get_states_data</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">,</span><span class="n">states</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
+                <span class="n">state_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">state</span><span class="p">]</span>
+                <span class="n">extra_key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">state_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">gen_type</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">state_data</span><span class="p">[</span><span class="n">extra_key</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">year</span><span class="p">])</span>
+                    <span class="n">index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gen_type</span><span class="p">)</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">attribute_label</span><span class="p">(</span><span class="n">scenario_file</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="n">tmp</span>
+                    <span class="k">continue</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="n">fill_value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">national</span> <span class="o">=</span> <span class="kc">False</span><span class="p">;</span> <span class="n">states</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="s1">&#39;national&#39;</span> <span class="ow">in</span> <span class="n">geography_ids</span><span class="p">:</span>
+            <span class="n">national</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="s1">&#39;national&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">geography_ids</span>
+            <span class="n">states</span> <span class="o">=</span> <span class="n">geography_ids</span>
+        <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouped_files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scenario_id</span> <span class="o">!=</span> <span class="n">scenario_id</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scenario</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">scenario_id</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">attribute_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">GENMIX_ATTRIBUTES</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">national</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">spatial_resolution_id</span> <span class="o">==</span> <span class="s1">&#39;national&#39;</span><span class="p">:</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_national_data</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+                    <span class="k">elif</span> <span class="n">states</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">spatial_resolution_id</span> <span class="o">==</span> <span class="s1">&#39;states&#39;</span><span class="p">:</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_states_data</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">states</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SSSParserError</span><span class="p">(</span><span class="s2">&quot;No generation mix availabale for year &#39;</span><span class="si">{}</span><span class="s2">&#39;, scenario_id &#39;</span><span class="si">{}</span><span class="s2">&#39;, geography_ids = &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="n">scenario_id</span><span class="p">,</span><span class="n">geography_ids</span><span class="p">))</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># calculate fractions</span>
+        <span class="n">original_columns</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">columns</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">original_columns</span><span class="p">:</span>
+            <span class="n">attribute_name</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">attribute_name</span> <span class="o">+</span> <span class="s1">&#39; Fraction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">/</span> <span class="n">result</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="c1"># summarize in a total line</span>
+        <span class="n">totals</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">totals</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;TOTAL&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">result</span><span class="p">,</span><span class="n">pds</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">totals</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="ScenariosDataset.get_timeseries"><a class="viewcode-back" href="../../api/sssparser.html#sssparser.ScenariosDataset.ScenariosDataset.get_timeseries">[docs]</a>    <span class="k">def</span> <span class="nf">get_timeseries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">scenario_id</span><span class="p">,</span><span class="n">geography_ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calls self.get_genmix for every year in self.years. Returns a </span>
+<span class="sd">        pandas.Series indexed by [&#39;dataset&#39;,&#39;scenario&#39;,&#39;geography&#39;,&#39;year&#39;,</span>
+<span class="sd">        &#39;gentype&#39;,&#39;variable&#39;]. The geography key is &#39;,&#39;.join(geography_ids).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">yr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">years</span><span class="p">:</span>
+            <span class="n">mix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_genmix</span><span class="p">(</span><span class="n">yr</span><span class="p">,</span><span class="n">scenario_id</span><span class="p">,</span><span class="n">geography_ids</span><span class="p">)</span>
+            <span class="n">mix</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;gentype&#39;</span>
+            <span class="n">value_vars</span> <span class="o">=</span> <span class="n">mix</span><span class="o">.</span><span class="n">columns</span>
+            <span class="n">mix</span> <span class="o">=</span> <span class="n">mix</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            <span class="n">mix</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">mix</span><span class="p">[</span><span class="s1">&#39;scenario&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scenario_id</span>
+            <span class="n">mix</span><span class="p">[</span><span class="s1">&#39;geography&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">geography_ids</span><span class="p">)</span>
+            <span class="n">mix</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span>
+            <span class="n">mix</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">mix</span><span class="p">,</span>
+                           <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">,</span><span class="s1">&#39;scenario&#39;</span><span class="p">,</span><span class="s1">&#39;geography&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;gentype&#39;</span><span class="p">],</span>
+                           <span class="n">value_vars</span><span class="o">=</span><span class="n">value_vars</span><span class="p">)</span>
+            <span class="n">mix</span> <span class="o">=</span> <span class="n">multi_index</span><span class="p">(</span><span class="n">mix</span><span class="p">,[</span><span class="s1">&#39;dataset&#39;</span><span class="p">,</span><span class="s1">&#39;scenario&#39;</span><span class="p">,</span><span class="s1">&#39;geography&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;gentype&#39;</span><span class="p">,</span><span class="s1">&#39;variable&#39;</span><span class="p">])</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mix</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pds</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div></div>
+
+<span class="c1"># Helpers</span>
+
+<div class="viewcode-block" id="multi_index"><a class="viewcode-back" href="../../api/sssparser.html#sssparser.ScenariosDataset.multi_index">[docs]</a><span class="k">def</span> <span class="nf">multi_index</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">pds</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">])),</span><span class="n">names</span> <span class="o">=</span> <span class="n">cols</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">result</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Alliance for Sustainable Energy.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.5.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
