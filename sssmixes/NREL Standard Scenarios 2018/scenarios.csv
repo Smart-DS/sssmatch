@@ -1,0 +1,44 @@
+id,label
+Mid_Case,Mid-Case Scenario
+X60Year_nuclear_lifetime,60-Year Nuclear Lifetime
+X80Year_nuclear_lifetime,80-Year Nuclear Lifetime
+National_RPS_80,80% National RPS
+High_Retire,Accelerated Retirements
+High_transmission_cost,Barriers to Transmission
+Carbon_cap,Carbon Cap
+Climate_change,Climate Change
+Early_nuclear_Retirements,Early Nuclear Retirements
+Low_Finance_Cost,Extended Cost Recovery
+Low_Retire,Extended Lifetimes
+Extended_nuclear_lifetime,Extended Nuclear Lifetime
+High_Bat_Cost,High Battery Cost
+High_Demand_Growth,High Demand Growth
+High_NG_Price,High NG Price
+High_NG_Price_plus_High_RE_Cost,High NG Price + High RE Cost
+High_NG_Price_plus_Low_CSP_Cost,High NG Price + Low CSP Cost
+High_NG_Price_plue_Low_Geo_Cost,High NG Price + Low Geo Cost
+High_NG_Price_plus_Low_Hydro_Cost,High NG Price + Low Hydro Cost
+High_NG_Price_plus_Low_Offshore_Cost,High NG Price + Low Offshore Cost
+High_NG_Price_plus_Low_RE_Cost,High NG Price + Low RE Cost
+High_RE_Cost,High RE Cost
+Low_Bat_Cost,Low Battery Cost
+Low_CSP_Cost,Low CSP Cost
+Low_Demand_Growth,Low Demand Growth
+Low_Geo_Cost,Low Geo Cost
+Low_Hydro_cost,Low Hydro Cost
+Low_NG_Price,Low NG Price
+Low_NG_Price_plus_High_RE_Cost,Low NG Price + High RE Cost
+Low_NG_Price_plus_Low_CSP_Cost,Low NG Price + Low CSP Cost
+Low_NG_Price_plus_Low_Geo_Cost,Low NG Price + Low Geo Cost
+Low_NG_Price_plus_Low_Hydro_Cost,Low NG Price + Low Hydro Cost
+Low_NG_Price_plus_Low_Offshore_Cost,Low NG Price + Low Offshore Cost
+Low_NG_Price_plus_Low_RE_Cost,Low NG Price + Low RE Cost
+Low_Offshore_Cost,Low Offshore Cost
+Low_PV_Cost,Low PV Cost
+Low_RE_Cost,Low RE Cost
+Low_Wind_Cost,Low Wind Cost
+Reduced_cost_nuclear,Nuke Tech Breakthrough
+PTC_ITC_extension,PTC & ITC Extension
+Reduced_RE_resource,Reduced RE Resource
+Cooling_water_restrictions,Restricted Cooling Water
+High_PHEV,Vehicle Electrification
