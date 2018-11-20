@@ -11,6 +11,12 @@ generation mixes to arbitrary transmission systems.
 ## Install
 
 ```
+pip install sssmatch
+```
+
+or
+
+```
 pip install git+https://github.com/Smart-DS/sssmatch.git@master
 ```
 
